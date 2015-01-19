@@ -68,6 +68,7 @@
 			}			
 		},
 		goToPage:function(){
+			if(this.page!=2){clearInterval($P.page3.timer);}
 			var _this = this;
 			for(var i=0;i<this.oSpans.length;i++){this.oSpans[i].className='';}//清除圆点样式
 				this.oSpans[_this.page].className = 'active';
@@ -76,7 +77,7 @@
 					_this.pageInit(_this.page);
 			})
 		},
-		pageInit:function(num){
+		pageInit:function(num){				
 			switch(num){
 				case 0:{				
 					$P.page1.doInit();break;
@@ -85,7 +86,7 @@
 					$P.page2.flag && $P.page2.init(page2Obj);break;
 				}
 				case 2:{
-					$P.page3.flag && $P.page3.init('blogId',page3Obj);break;
+					$P.page3.init('blogId',page3Obj);break;
 				}
 			}
 		},
@@ -356,28 +357,31 @@
 	$P.page3 = {
 		timer:null,
 		flag:true,
-		init:function(id,obj){
-			this.flag = false;
+		init:function(id,obj){						
 			var oDiv=document.getElementById(id);
-			var aDivHtml = [];
-			for(var i=0;i<obj.length;i++){
-				aDivHtml.push('<a href="#" onclick="showDialog('+i+')">'+obj[i]+'</a>');
+			var aA=oDiv.getElementsByTagName('a');	
+			if(this.flag){
+				var aDivHtml = [];
+				for(var i=0;i<obj.length;i++){
+					aDivHtml.push('<a href="#" onclick="showDialog('+i+')">'+obj[i]+'</a>');
+				}
+				oDiv.innerHTML = aDivHtml.join('');				
+				var i=0;
+				for(i=0;i<aA.length;i++){
+					aA[i].pause=1;
+					aA[i].time=null;
+					initialize(aA[i]);
+					aA[i].onmouseover=function(){
+						this.pause=0;	
+					};
+					aA[i].onmouseout=function(){
+						this.pause=1;
+					};
+				}	
 			}
-			oDiv.innerHTML = aDivHtml.join('');
-			var aA=oDiv.getElementsByTagName('a');		
-			var i=0;
-			for(i=0;i<aA.length;i++){
-				aA[i].pause=1;
-				aA[i].time=null;
-				initialize(aA[i]);
-				aA[i].onmouseover=function(){
-					this.pause=0;	
-				};
-				aA[i].onmouseout=function(){
-					this.pause=1;
-				};
-			}
-			this.timer = setInterval(starmove,30);
+			this.flag = false;
+			this.timer = setInterval(starmove,25);
+			
 			function starmove(){
 				for(i=0;i<aA.length;i++){
 					if(aA[i].pause){
@@ -395,7 +399,7 @@
 			}
 			function initialize(obj){
 				var iTop=parseInt(Math.random()*oDiv.offsetHeight);
-				var scale=Math.random()*1+0.8;
+				var scale=Math.random()*1+1;
 				var iTimer=parseInt(Math.random()*3000);
 				obj.pause=0;
 				obj.style.fontSize=12*scale+'px';
@@ -409,7 +413,7 @@
 				obj.time=setTimeout(function(){
 					obj.pause=1;
 				},iTimer);
-				obj.ispeed=Math.ceil(Math.random()*4)+1;
+				obj.ispeed=Math.ceil(Math.random()*8)+1;
 			}
 		}
 	}
