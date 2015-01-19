@@ -49,18 +49,19 @@
         </li>
   		<li class="pageLi">
         	<div id="page2" class="page">
-            	<div class="page2_title"><span class="title hvr-wobble-horizontal" style="width:220px;cursor:pointer;">我的照片墙</span></div>
+            	<div class="page2_title"><span class="hvr-wobble-horizontal" style="width:220px;cursor:pointer;">我的照片墙</span></div>
 				<div id="imgDiv" class="page2_content"></div>
             </div>
         </li>
   		<li class="pageLi">
         	<div id="page3" class="page">
-            	
+           		 <div class="page3_title">我的博客墙</div>
+            	 <div id="blogId"></div>
             </div>
         </li>
   		<li class="pageLi">
         	<div id="page4" class="page">
-            	
+            	<div id="blogId"></div>
             </div>
         </li>
   		<li class="pageLi">
@@ -113,7 +114,7 @@
 
 <div id="toTop" class="toTop hvr-wobble-vertical"></div>
 <script>
-var photoImgs = {
+var page2Obj = {
 	id:'imgDiv',	
 	width:180,//图片宽
 	height:120,//图片高
@@ -124,6 +125,14 @@ var photoImgs = {
 		  'images/photo16.jpg','images/photo17.jpg','images/photo18.jpg','images/photo19.jpg','images/photo20.jpg',
 		  'images/photo21.jpg','images/photo22.jpg','images/photo23.jpg','images/photo24.jpg']
 }
+var page3Obj = [
+'JS课程','继承','妙味课堂','莫涛','blue','试听','精品','miaov','CSS','杜鹏',
+'JS课程','继承','妙味课堂','莫涛','blue','试听','精品','miaov','CSS','杜鹏',
+'JS课程','继承','妙味课堂','莫涛','blue','试听','精品','miaov','CSS','杜鹏',
+'JS课程','继承','妙味课堂','莫涛','blue','试听','精品','miaov','CSS','杜鹏',
+'JS课程','继承','妙味课堂','莫涛','blue','试听','精品','miaov','CSS','杜鹏',
+'JS课程','继承','妙味课堂','莫涛','blue','试听','精品','miaov','CSS','杜鹏'
+]
 window.onload = function(){
 	$Page.support();//检测浏览器是否支持HTML5
 	$Page.page.onLoad();//加载首页
