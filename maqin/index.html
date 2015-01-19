@@ -126,10 +126,8 @@ var photoImgs = {
 }
 window.onload = function(){
 	$Page.support();//检测浏览器是否支持HTML5
-	$Page.page.onLoad();//加载第一个页面
-	window.onresize = function(){
-		$Page.page.onLoad();
-	};	
+	$Page.page.onLoad();//加载首页
+	window.onresize = function(){$Page.page.onLoad()};	
 }	
 
 </script>
