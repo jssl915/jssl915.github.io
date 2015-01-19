@@ -6,7 +6,7 @@
 		if (document.createElement('canvas').getContext) {return}
 		var oDiv = document.createElement('div');
 		oDiv.innerHTML = "Your browser doesn't support HTML5!<BR>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
-		oDiv.className = 'errorMsg';
+		oDiv.className = 'noSupportMsg';
 		document.body.innerHTML = "";
 		document.body.appendChild(oDiv);
 		return ;
