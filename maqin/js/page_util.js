@@ -661,7 +661,7 @@ function Dock(oEle, iDirection, oDistance, fnOnBrowserChecked, fnOnResizeOrScrol
 	}
 	else
 	{
-		oEle.style.position='fixed';
+		oEle.style.position='absolute';
 	}
 	
 	//bind event
