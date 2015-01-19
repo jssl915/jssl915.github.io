@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>商户详情</title>
+<link href="static/style.css" rel="stylesheet" type="text/css" />
+<link href="static/tv_query/css/tv_extend.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="box">
+  <div class="head">
+    <div class="logo"></div>
+    <div class="hotline">生活圈热线电话：027-8888888</div>
+  </div>
+  <div class="main">
+    <div class="title">精武鸭脖（解放大道店）</div>
+    <div class="left"> <img src="static/images/adv02.png">
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td width="110" valign="top">门店地址：</td>
+          <td valign="top" colspan="3">江汉区汉口解放大道新华路(近精武路)解放大道新华路(近精武路)</td>
+        </tr>
+        <tr>
+          <td width="110" valign="top">门店电话：</td>
+          <td width="171" valign="top">027-86778277</td>
+          <td width="154" valign="top">其他门店数量：</td>
+          <td width="48" valign="top"><span id="tv_num1" tv_type="tv_button" tv_css="color_css1,color_css2">22</span>家</td>
+        </tr>
+      </table>
+    </div>
+    <div class="right">
+      <div style="width:693px; float:left;">
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td>评分：</td>
+          <td id="tv_star" class="tv_star"></td>
+          <td><span id="tv_num3" tv_type="tv_button" tv_css="color_css1,color_css2">125</span>条评论</td>
+        </tr>
+        <tr>
+          <td colspan="2">共发布信息<span id="tv_num2" tv_type="tv_button" tv_css="color_css1,color_css2">63</span>条</td>
+        </tr>
+      </table>
+      <div id="erweima" tv_type="tv_button" tv_css="erweima1,erweima2" class="erweima"><img src="static/images/erweima.png"></div></div>
+      <div class="sellerinfo">
+      <p style="float:left; line-height:40px; height:40px;">商家介绍：</p>
+      <div class="sellerinfo_text"><div id="infoText" style="text-indent:2em;overflow:hidden;height:308px;position:relative;">
+      	汉口精武鸭脖的口味众多，但都具有同一个特点，味道浓郁，香入骨髓！吃完包裹在骨头上的肉，千万不要错过藏在骨头缝里的肉，虽然不多，可是更美味！汉口精武的鸭脖，肉质香嫩滑腻，越嚼到骨头里味道越浓郁，越会让您欲罢不能！这与汉口精武鸭脖的选材是分不开的。汉口精武所选的鸭子是清朝皇宫御用贡品之一—白鹭鸭，这种鸭类品牌是所有制作卤味鸭脖的臻品。鸭脖虽说只是休闲零食，或者佐餐下酒的小菜，但是其营养价值也不容忽视。众所周知，鸭属凉性，常食之，配以辣椒、甘草、肉桂卤制等，性温而不燥，除湿去烦，开胃健脾。
+        汉口精武鸭脖的口味众多，但都具有同一个特点，味道浓郁，香入骨髓！吃完包裹在骨头上的肉，千万不要错过藏在骨头缝里的肉，虽然不多，可是更美味！汉口精武的鸭脖，肉质香嫩滑腻，越嚼到骨头里味道越浓郁，越会让您欲罢不能！这与汉口精武鸭脖的选材是分不开的。汉口精武所选的鸭子是清朝皇宫御用贡品之一—白鹭鸭，这种鸭类品牌是所有制作卤味鸭脖的臻品。鸭脖虽说只是休闲零食，或者佐餐下酒的小菜，但是其营养价值也不容忽视。众所周知，鸭属凉性，常食之，配以辣椒、甘草、肉桂卤制等，性温而不燥，除湿去烦，开胃健脾。
+      </div>
+      <div class="fanye"><ul><li id="tv_pre" tv_type="tv_button" tv_css="color_css1,color_css2"><<</li> <li id="tv_next" tv_type="tv_button" tv_css="color_css1,color_css2">>></li></ul></div>
+      <div class="kuang01"></div><div class="kuang02"></div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot02">
+    <ul>
+       <li id="tv_index" tv_type="tv_radio" tv_css="css1,css2,css3,css4" tv_name='menu' tv_value='回到首页'>回到首页</li>
+    </ul>
+  </div>
+</div>
+<div id="big_erweima" class="big_erweima"><img src="static/images/erweima.png"></div>
+<script type="text/javascript" src="static/tv_query/tvQuery.js"></script>
+<script type="text/javascript" src="static/tv_query/tvExtend.js"></script>  
+<script>
+var data = [
+	{id:'tv_num3',x:0,y:0},
+	{id:'erweima',x:0,y:1},
+	{id:'tv_num2',x:1,y:0},
+	{id:'tv_pre',x:2,y:0},
+	{id:'tv_next',x:2,y:1},
+	{id:'tv_num1',x:2,y:2},
+	{id:'tv_index',x:3,y:0}
+]
+var text="";
+var obj ={
+	id:'infoText',
+	preId:"tv_pre",
+	nextId:'tv_next'	
+}
+
+$tv(function(){
+	$tv.loadInit({id:'tv_next',data:data});
+	pageTurn.init(obj);
+	star.info('tv_star',3);	
+	
+	$tv('#erweima').getFocus(function(){
+		document.getElementById('big_erweima').className = 'big_erweima1';
+	});
+	$tv('#erweima').loseFocus(function(){
+		document.getElementById('big_erweima').className = 'big_erweima2';
+		setTimeout(function(){
+            	document.getElementById('big_erweima').className = 'big_erweima';	   
+			},500);
+	});
+	$tv('#tv_index').ok(function(){
+		window.location.href='index.html'
+	})
+})
+
+</script>
+</body>
+</html>

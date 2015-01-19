@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>生活圈首页</title>
+<link href="static/style.css" rel="stylesheet" type="text/css" />
+<link href="static/tv_query/css/tv_extend.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="box">
+  <div class="head">
+    <div class="logo"></div>
+    <div class="line"></div>
+    <div class="location">
+      <div id="tv_location" tv_type="tv_button" tv_css="weizhi1,weizhi2" class="weizhi1">武汉市-洪山区</div>
+    </div>
+    <div id="tv_locaIcon" tv_type="tv_button" tv_css="weizhi_icon1,weizhi_icon2" class="weizhi_icon1"></div>
+    <div id="tv_search_icon" tv_type="tv_button" tv_css="search_icon1,search_icon2" class="search_icon1"></div>
+    <div id="tv_search_text" tv_type="tv_text" tv_css ="search_text1,search_text2" class="search_text1" placeholder="搜索..."></div>    
+  </div>
+  <div id="adv" tv_type="tv_button" tv_css="adv1,adv2" style="position:relative;overflow:hidden"></div>
+  <div class="menu">
+    <ul>
+      <li id="tv_li1" tv_type="tv_button" tv_css="css1,css2" class="css1" style="margin:0 20px 20px 0; background:#a32622"><img src="static/images/canyin.png"><p>餐饮</p></li>
+      <li id="tv_li2" tv_type="tv_button" tv_css="css1,css2" class="css1" style="margin:0 20px 20px 0; background:#eb8d11"><img src="static/images/zhusu.png"><p>住宿</p></li>
+      <li id="tv_li3" tv_type="tv_button" tv_css="css1,css2" class="css1" style="margin:0 20px 20px 0; background:#3b8882"><img src="static/images/xiuxianyule.png"><p>休闲娱乐</p></li>
+      <li id="tv_li4" tv_type="tv_button" tv_css="css1,css2" class="css1" style="margin:0 0px 20px 0; background:#812a61"><img src="static/images/shenghuo.png"><p>生活服务</p></li>
+      <li id="tv_li5" tv_type="tv_button" tv_css="css1,css2" class="css1" style="margin:0 20px 0px 0; background:#dc2f1e"><img src="static/images/lingshouye.png"><p>零售业</p></li>
+      <li id="tv_li6" tv_type="tv_button" tv_css="css1,css2" class="css1" style="margin:0 20px 0px 0; background:#519b5c"><img src="static/images/dingpiao.png"><p>经典门票</p></li>
+      <li id="tv_li7" tv_type="tv_button" tv_css="css1,css2" class="css1" style="margin:0 20px 0px 0; background:#291962"><img src="static/images/movie.png"><p>电影</p></li>
+      <li id="tv_li8" tv_type="tv_button" tv_css="css1,css2" class="css1" style="background:#0b76ae"><img src="static/images/liren.png"><p>丽人</p></li>
+    </ul>
+  </div>
+  <div class="today">
+    <div class="biaoti">
+      <ul>
+        <li>今日推荐</li>
+      </ul>
+    </div>
+    <div class="today_main">
+      <ul>
+        <li><img id="tv_today1" tv_type="tv_button" tv_css="css1,css2" class="css1" xsrc="static/images/today01.png">
+          <div class="today_text">
+            <h1>【积玉桥】韩潮韩国烧烤</h1>
+            <p>仅售99.9元4人餐！特色的韩式烧烤,环
+              境优雅舒适，交通便利，免费WiFi！<br>
+              地址：武昌区司门口户部巷</p>
+          </div>
+        </li>
+        <li><img id="tv_today2" tv_type="tv_button" tv_css="css1,css2" class="css1" xsrc="static/images/today02.png">
+          <div class="today_text">
+            <h1>【光谷】光谷正华银兴影城</h1>
+            <p>仅售20元，享限价影片和3D影片，2D/
+              3D可兑。<br>
+              地址：洪山区民族大道118号光谷时间广场三楼</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot">
+  <ul>
+  <li id="tv_menu1" tv_type="tv_radio" tv_css="css1,css2,css3,css4" class="css1" tv_name='menu' tv_value='首页'>首页</li>
+  <li id="tv_menu2" tv_type="tv_radio" tv_css="css1,css2,css3,css4" class="css1" tv_name='menu' tv_value='关注'>登录</li>
+  <li id="tv_menu3" tv_type="tv_radio" tv_css="css1,css2,css3,css4" class="css1" tv_name='menu' tv_value='订单'>订单</li>
+  <li id="tv_menu4" tv_type="tv_radio" tv_css="css1,css2,css3,css4" class="css1" tv_name='menu' tv_value='更多'>更多</li>
+  </ul>
+</div>
+</div>
+<script type="text/javascript" src="static/tv_query/tvQuery.js"></script> 
+<script type="text/javascript" src="static/tv_query/tvExtend.js"></script> 
+<script src='static/tv_query/dict.js'></script>
+<script type="text/javascript" src="static/tv_query/tvArea.js"></script>
+<script>
+$tv(function(){
+	//加载广告图片
+	var obj = {		
+		id:'adv',		
+		css:['css1','css2'],
+		zoom:{up:'tv_location',right:'tv_li5',down:'tv_today1',left:false},	
+		data:[
+		{id:1,pic1:"static/images/adv01.png"},
+		{id:2,pic1:"static/images/adv02.png"},
+		{id:3,pic1:"static/images/adv03.png"}
+		]
+	}	
+	$tv.loadInit({id:'tv_location'});	
+	//$tv.setSupportMouse(false);  	
+	$tv('#tv_location').ok(function(){
+		tvArea.init(this.id);
+	});
+	$tv('#tv_location').choose = function(cityName){
+		alert(cityName);
+	}
+	$tv('#tv_locaIcon').ok(function(){			
+		window.location.href="http://192.168.1.59/lifeCycle/map.html";
+	});
+	$tv('#tv_search_text').ok(function(){			
+		this.bindSoftKey({right:'10px',bottom:'10px'});			
+	});		
+	$tv('#tv_search_icon').ok(function(){
+		window.location.href='search.html'
+	})
+	picSwitch.init(obj);
+	$tv('#adv').ok(function(){
+		window.location.href='prodInfo.html'
+		//console.log(this.adData);
+	})
+	$tv('#tv_today1').up(function(){$tv.setFocusId('adv')});
+	$tv('#tv_today1').ok(function(){
+		window.location.href='prodInfo.html'
+	})	
+	$tv('#tv_today2').ok(function(){
+		window.location.href='prodInfo.html'
+	})	
+	$tv('#tv_li5').left(function(){$tv.setFocusId('adv')});
+	$tv('#tv_li8').right(function(){$tv.setFocusId('adv')});
+	for(var i=1;i<9;i++){
+		(function(num){
+			$tv('#tv_li'+num).ok(function(){
+				window.location.href='search.html'
+			})
+		}(i))
+	}
+	$tv('#tv_menu2').ok(function(){
+		window.location.href='login.html'
+	})
+	$tv('#tv_menu3').ok(function(){
+		window.location.href='order.html'
+	})
+	$tv('#tv_menu4').ok(function(){
+		window.location.href='more.html'
+	})
+	$tv.lazyload();
+})
+
+function goBack(){
+	alert(12);  
+}
+</script>
+</body>
+</html>

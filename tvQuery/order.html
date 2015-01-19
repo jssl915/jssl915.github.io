@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>历史订单</title>
+<link href="static/style.css" rel="stylesheet" type="text/css" />
+<link href="static/tv_query/css/tv_extend.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="box">
+  <div class="head">
+    <div class="logo"></div>
+    <div class="hotline">生活圈热线电话：027-8888888</div>
+  </div>
+  <div class="main">
+    <div class="title">历史订单</div>
+    <div class="history">
+      <ul>
+        <li>
+          <div class="lishi_title">
+              <span style="padding-left:40px; float:left;">订单编号：17008584401</span>
+              <span style="margin-right:40px; float:right; color:#44b6ff;  line-height:35px;">
+              <span id="pay_1" tv_type="tv_button" tv_css="css1,css2">付款</span>　|　
+              <span id="del_1" tv_type="tv_button" tv_css="css1,css2">删除</span></span>
+          </div>
+          <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+              <td width="141"><img src="static/images/dianying.png"></td>
+              <td style="text-align: left;">
+              	<span id="service_1" tv_type="tv_button" tv_css="css1,css2">青山天河国际影城单人影票</span><br />
+                有效期至：2014-09-05<br />
+                <span id="business_1" tv_type="tv_button" tv_css="css1,css2">青山天河国际影城</span></td>
+              <td>数量：4</td>
+              <td><span style="color:#ff3600;">87.00</span>元<br />
+                2014-8-15 15:31:25</td>
+              <td>未付款</td>
+            </tr>
+          </table>
+        </li>
+        <li>
+          <div class="lishi_title">
+              <span style="padding-left:40px; float:left;">订单编号：17008584401</span>
+              <span style="margin-right:40px; float:right; color:#44b6ff;  line-height:35px;">
+              <span id="pay_2" tv_type="tv_button" tv_css="css1,css2">付款</span>　|　
+              <span id="del_2" tv_type="tv_button" tv_css="css1,css2">删除</span></span>
+          </div>
+          <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+              <td width="141"><img src="static/images/dianying.png"></td>
+              <td style="text-align: left;">
+              	<span id="service_2" tv_type="tv_button" tv_css="css1,css2">青山天河国际影城单人影票</span><br />
+                有效期至：2014-09-05<br />
+                <span id="business_2" tv_type="tv_button" tv_css="css1,css2">青山天河国际影城</span></td>
+              <td>数量：4</td>
+              <td><span style="color:#ff3600;">87.00</span>元<br />
+                2014-8-15 15:31:25</td>
+              <td>未付款</td>
+            </tr>
+          </table>
+        </li>
+        <li>
+          <div class="lishi_title">
+              <span style="padding-left:40px; float:left;">订单编号：17008584401</span>
+              <span style="margin-right:40px; float:right; color:#44b6ff;  line-height:35px;">
+              <span id="pay_3" tv_type="tv_button" tv_css="css1,css2">付款</span>　|　
+              <span id="del_3" tv_type="tv_button" tv_css="css1,css2">删除</span></span>
+          </div>
+          <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+              <td width="141"><img src="static/images/dianying.png"></td>
+              <td style="text-align: left;">
+              	<span id="service_3" tv_type="tv_button" tv_css="css1,css2">青山天河国际影城单人影票</span><br />
+                有效期至：2014-09-05<br />
+                <span id="business_3" tv_type="tv_button" tv_css="css1,css2">青山天河国际影城</span></td>
+              <td>数量：4</td>
+              <td><span style="color:#ff3600;">87.00</span>元<br />
+                2014-8-15 15:31:25</td>
+              <td>未付款</td>
+            </tr>
+          </table>
+        </li>        
+      </ul>
+    </div>
+    <div class="fanye3">    	 
+        <span id="pre_page" tv_type="tv_button" tv_css="precss1,precss2"></span>
+        <span id="page_text" tv_type="tv_text" maxlength="4" content="number" tv_css="text1,text2">1</span>
+        <span style="float:left;margin-right:10px;">/10</span>        
+        <span id="next_page" tv_type="tv_button" tv_css="nextcss1,nextcss2"></span>
+    </div>   
+</div>
+<div class="foot02">
+<ul>
+  <li id="tv_index" tv_type="tv_radio" tv_css="css1,css2,css3,css4" tv_name='menu' tv_value='回到首页'>回到首页</li>
+</ul>
+</div>
+<script type="text/javascript" src="static/tv_query/tvQuery.js"></script> 
+<script type="text/javascript" src="static/tv_query/tvExtend.js"></script> 
+<script>
+$tv(function(){
+	$tv.loadInit();
+	$tv('#tv_index').ok(function(){
+		window.location.href='index.html'
+	})
+})
+</script>
+</body>
+</html>

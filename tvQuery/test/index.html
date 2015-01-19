@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"  content="target-densitydpi=device-dpi,user-scalable=no" />
+<title>index</title>
+<link href="../static/tv_query/css/tv_default.css" rel="stylesheet" type="text/css" />
+<link href="../static/tv_query/css/tv_extend.css" rel="stylesheet" type="text/css" />
+<style>
+body{background:#BFC9DA;font-family: "黑体";font-size: 27px;}
+.content{width:1280px;margin:0 auto; }
+.title{text-align:center;margin:40px auto;font-size:30px;color:#990033}
+.c_button{position:relative;margin-left:350px;}
+.lable_2{position:absolute;left:-200px;top:0;color:#0000FF}
+.lable_3{position:absolute;left:-200px;top:60px;color:#0000FF}
+.lable_4{position:absolute;left:-200px;top:120px;color:#0000FF}
+.lable_5{position:absolute;left:-200px;top:180px;color:#0000FF}
+.lable_6{position:absolute;left:-200px;top:240px;color:#0000FF}
+.lable_7{position:absolute;left:40px;top:237px;}
+.lable_8{position:absolute;left:180px;top:237px;}
+.lable_9{position:absolute;left:320px;top:237px;}
+.lable_10{position:absolute;left:460px;top:237px;}
+.lable_11{position:absolute;left:-200px;top:300px;;color:#0000FF}
+.lable_12{position:absolute;left:40px;top:300px;}
+.lable_13{position:absolute;left:180px;top:300px;}
+.lable_14{position:absolute;left:320px;top:300px;}
+.lable_15{position:absolute;left:460px;top:300px;}
+/**位置样式*/
+#tv_1{position:absolute;left:0;top:0;}
+#tv_2{position:absolute;left:250px;top:0px;}
+#tv_3{position:absolute;left:0px;top:60px;}
+#tv_4{position:absolute;left:300px;top:60px;}
+#tv_5{position:absolute;left:0px;top:120px;}
+#tv_6{position:absolute;left:250px;top:120px;}
+#tv_7{position:absolute;left:0;top:180px;}
+#tv_8{position:absolute;left:250px;top:180px;}
+#tv_9{position:absolute;left:0;top:240px;}
+#tv_10{position:absolute;left:140px;top:240px;}
+#tv_11{position:absolute;left:280px;top:240px;}
+#tv_12{position:absolute;left:420px;top:240px;}
+#tv_13{position:absolute;left:0px;top:300px;}
+#tv_14{position:absolute;left:140px;top:300px;}
+#tv_15{position:absolute;left:280px;top:300px;}
+#tv_16{position:absolute;left:420px;top:300px;}
+</style>
+</head>
+<body>
+<div id="content" class="content">
+	<div class="title">组件</div>
+    <div class="c_button">      
+        <div class="lable_2">按钮:</div>
+        <div id="tv_1" tv_type="tv_button">按钮1</div>
+        <div id="tv_2" tv_type="tv_button">按钮2</div>
+        <div class="lable_3">下拉框:</div>
+        <div id="tv_3" tv_type="tv_select"></div>
+        <div id="tv_4" tv_type="tv_select"></div>
+        <div class="lable_4">密码框:</div>
+        <div id="tv_5" tv_type="tv_password"></div>
+        <div id="tv_6" tv_type="tv_password"></div>
+        <div class="lable_5">文本框:</div>
+        <div id="tv_7" tv_type='tv_text'></div>
+        <div id="tv_8" tv_type="tv_text"></div>
+        <div class="lable_6">单选框:</div>
+        <div id="tv_9" tv_type="tv_radio" tv_name='color' tv_value='red'></div><div class="lable_7">红色</div>  
+        <div id="tv_10" tv_type="tv_radio" tv_name='color' tv_value='yellow'></div><div class="lable_8">黄色</div>
+        <div id="tv_11" tv_type="tv_radio" tv_name='color' tv_value='green'></div><div class="lable_9">绿色</div>  
+        <div id="tv_12" tv_type="tv_radio" tv_name='color' tv_value='blue'></div><div class="lable_10">蓝色 </div>      
+        <div class="lable_11">多选框:</div>
+        <div id="tv_13" tv_type="tv_checkbox" tv_name='color1' tv_value='red'></div><div class="lable_12">红色</div>        
+        <div id="tv_14" tv_type="tv_checkbox" tv_name='color1' tv_value='yellow'></div><div class="lable_13">黄色</div>        
+        <div id="tv_15" tv_type="tv_checkbox" tv_name='color1' tv_value='green'></div><div class="lable_14">绿色</div>        
+        <div id="tv_16" tv_type="tv_checkbox" tv_name='color1' tv_value='blue'></div><div class="lable_15">蓝色</div>  
+        <div style="display:none">
+        <div id="tv_18" tv_type="tv_special" style="position:absolute;left:420px;top:400px;">按钮1</div> 
+        <div id="tv_19" tv_type="tv_special" style="position:absolute;left:460px;top:400px;">按钮1</div>   
+        </div>     
+  </div> 
+</div>  
+<script type="text/javascript" src="../static/tv_query/tvQuery.js"></script> 
+<script type="text/javascript" src="../static/tv_query/tvExtend.js"></script> 
+<script type="text/javascript" src="../static/tv_query/dict.js"></script> 
+<script type="text/javascript">
+var aOption1 = [{'text':'第一天','value':'1'},{'text':'第二天','value':'2'},{'text':'第三天','value':'3'},{'text':'第四天','value':'4'},{'text':'第五天','value':'5'},
+			   {'text':'第六天','value':'6'},{'text':'第七天','value':'7'},{'text':'第八天','value':'8'},{'text':'第九天','value':'9'},{'text':'第十天','value':'10'}]; 
+var aOption2 = [{'text':'第一天','value':'1'},{'text':'第二天','value':'2'},{'text':'第三天','value':'3'}]; 			   
+$tv(function(){			
+	$tv.loadInit();//初始化方法
+	$tv.setFocusId('tv_4');
+	$tv('#tv_3').attr('option',aOption1);
+	$tv('#tv_4').attr('option',aOption2);	
+	$tv('#tv_1').ok(function(){		
+		$tv.alert('元素的类型未定义');	
+	})
+	$tv('#tv_2').ok(function(){
+		$tv.confirm({				
+			content:'确定要删除这个吗？',			
+			onClose:function(v){
+				if(v){
+					alert('确认');
+				}else{
+					alert('取消');
+				}
+			}
+		});	
+	})
+	$tv('#tv_3').attr('option',aOption1);
+	$tv('#tv_4').attr('option',aOption2);
+	var aBtnCss = ['s2_button1','s2_button2']		
+	$tv('#tv_7').ok(function(){this.bindSoftKey({right:'10px',bottom:'10px'})})	
+	$tv('#tv_8').ok(function(){this.bindSoftKey({right:'10px',bottom:'10px'})})	
+	$tv('#tv_7').val(21);	
+	$tv('#tv_3').val(3);	
+	$tv('.color').val('blue');
+	$tv('.color1').val('blue,red');
+/*	$tv('#tv_2').ok(function(){
+		$tv.ajax({
+			url: "http://192.168.1.59/TV_Component/dialog.html",              //请求地址
+			type: "GET",                       //请求方式
+			data: {name: "super", age: 20 },        //请求参数
+			dataType: "json",
+			success: function (response, xml) {
+				alert(response);
+			},
+			fail: function (status) {
+				// 此处放失败后执行的代码
+			}
+		});
+	});	*/
+	$tv('#tv_5').val(32);
+ 	
+})
+</script>
+</body>
+</html>

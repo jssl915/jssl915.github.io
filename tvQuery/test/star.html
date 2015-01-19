@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"  content="target-densitydpi=device-dpi,user-scalable=no" />
+<title>score</title>
+<link href="../static/tv_query/css/tv_default.css" rel="stylesheet" type="text/css" />
+<link href="../static/tv_query/css/tv_extend.css" rel="stylesheet" type="text/css" />
+<style>
+body{background:#BFC9DA;font-family: "宋体";font-size: 27px;}
+.content{width:1280px;margin:0 auto;}
+.title{text-align:center;margin:40px auto;font-size:30px;color:#990033}
+</style>
+</head>
+<body>
+<div id="content" class="content">
+	<div class="title">评分组件</div>  
+    <div id="tv1" tv_type="tv_button">按钮</div>   
+    <div id="tv_star" class="tv_star" tv_type="tv_button" tv_css="tv_star,tv_star" style="height:30px;margin-top:20px;"></div>
+    <div id="tv_star2" class="tv_star" tv_type="tv_button" tv_css="tv_star,tv_star" style="height:30px;margin-top:20px;"></div>  
+    <div id="tv_star3" class="tv_star" tv_type="tv_button" tv_css="tv_star,tv_star" style="height:30px;margin-top:20px;"></div>        
+</div>  
+<script type="text/javascript" src="../static/tv_query/tvQuery.js"></script> 
+<script type="text/javascript" src="../static/tv_query/tvExtend.js"></script> 
+<script type="text/javascript">
+$tv(function(){	
+	//star.info('tv_star',3);	
+	$tv.loadInit({id:'tv_star'});	
+	star.init('tv_star',3);
+	star.init('tv_star2',4);	
+	star.init('tv_star3',4);	
+	$tv('#tv1').ok(function(){
+		alert($tv('#tv_star').val()+" "+$tv('#tv_star2').val()+" "+$tv('#tv_star3').val());
+	})	
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"  content="target-densitydpi=device-dpi,user-scalable=no" />
+<title>linkSelect</title>
+<link href="../static/tv_query/css/tv_default.css" rel="stylesheet" type="text/css" />
+<link href="../static/tv_query/css/tv_extend.css" rel="stylesheet" type="text/css" />
+<style>
+body{background:#BFC9DA;font-family: "宋体";font-size: 27px;}
+.content{width:1280px;margin:0 auto; }
+.title{text-align:center;margin:40px auto;font-size:30px;color:#990033}
+.adv1{width:470px;height:336px;float:left;margin-left:25px;position:relative}
+.adv2{float:left;width:470px;height:336px;margin-left:25px;cursor:pointer;-webkit-transform:scale(1.07);-webkit-transition:all .3s ease-in-out;-moz-transform:scale(1.07);-moz-transition:all .3s ease-in-out;z-index:2;}
+.adv1 img{width:470px;height:336px;}
+.adv2 img{width:470px;height:336px;}
+</style>
+</head>
+<body>
+<div id="content" class="content">
+	<div class="title">图片切换</div>  
+    <div id="tv1" tv_type="tv_button">abc</div>
+    <div id="adv" tv_type="tv_button" tv_css="adv1,adv2" style="position:relative;overflow:hidden"></div>
+    
+</div>  
+<script type="text/javascript" src="../static/tv_query/tvQuery.js"></script> 
+<script type="text/javascript" src="../static/tv_query/tvExtend.js"></script> 
+<script type="text/javascript">
+//加载广告图片
+var obj = {		
+	id:'adv',		
+	css:['css1','css2'],	
+	data:["../static/images/adv01.png","../static/images/adv02.png","../static/images/adv03.png"]
+}	
+$tv(function(){
+	$tv.loadInit({id:'tv1'});	
+	picSwitch.init(obj);
+})
+
+</script>
+</body>
+</html>

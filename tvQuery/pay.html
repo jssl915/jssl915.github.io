@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>支付</title>
+<link href="static/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="box">
+  <div class="head">
+    <div class="logo"></div>
+    <div class="hotline">生活圈热线电话：027-8888888</div>
+  </div>
+  <div class="main">
+    <div class="title">仟吉西饼</div>
+    <div class="shangpin">
+      <div class="shangpin_info">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td><img src="static/images/qianji.png"></td>
+            <td valign="top">价格：<span style="color:#f04602;">146</span>元<br />
+              数量：2个<br/>
+              地址：地址：江汉区汉口解放大道新华路（近精武路）<br/>
+              应付金额：<span style="color:#f04602;">146</span>元</td>
+          </tr>
+        </table>
+        <p style="margin-top:10px;">网银支付</p>
+        <div class="zhifu">
+          <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td>选择其他银行>></td>
+              <td><img src="static/images/bank_01.png" id="bank_01" tv_type="tv_radio" tv_name='bank' tv_value='1' tv_css="css1,css2,css3,css4"></td>
+              <td><img src="static/images/bank_02.png" id="bank_02" tv_type="tv_radio" tv_name='bank' tv_value='2' tv_css="css1,css2,css3,css4"></td>
+              <td><img src="static/images/bank_03.png" id="bank_03" tv_type="tv_radio" tv_name='bank' tv_value='3' tv_css="css1,css2,css3,css4"></td>
+              <td><img src="static/images/bank_04.png" id="bank_04" tv_type="tv_radio" tv_name='bank' tv_value='4' tv_css="css1,css2,css3,css4"></td>
+              <td><img src="static/images/bank_05.png" id="bank_05" tv_type="tv_radio" tv_name='bank' tv_value='5' tv_css="css1,css2,css3,css4"></td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td><img src="static/images/bank_06.png" id="bank_06" tv_type="tv_radio" tv_name='bank' tv_value='6' tv_css="css1,css2,css3,css4"></td>
+              <td><img src="static/images/bank_07.png" id="bank_07" tv_type="tv_radio" tv_name='bank' tv_value='7' tv_css="css1,css2,css3,css4"></td>
+              <td><img src="static/images/bank_08.png" id="bank_08" tv_type="tv_radio" tv_name='bank' tv_value='8' tv_css="css1,css2,css3,css4"></td>
+              <td><img src="static/images/bank_09.png" id="bank_09" tv_type="tv_radio" tv_name='bank' tv_value='9' tv_css="css1,css2,css3,css4"></td>
+              <td><img src="static/images/bank_10.png" id="bank_10" tv_type="tv_radio" tv_name='bank' tv_value='10' tv_css="css1,css2,css3,css4"></td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td><img src="static/images/bank_11.png" id="bank_11" tv_type="tv_radio" tv_name='bank' tv_value='11' tv_css="css1,css2,css3,css4"></td>
+              <td><img src="static/images/bank_12.png" id="bank_12" tv_type="tv_radio" tv_name='bank' tv_value='12' tv_css="css1,css2,css3,css4"></td>
+              <td><img src="static/images/bank_13.png" id="bank_13" tv_type="tv_radio" tv_name='bank' tv_value='13' tv_css="css1,css2,css3,css4"></td>
+              <td>&nbsp;</td><td>&nbsp;</td>
+            </tr>
+          </table>
+          <div class="button02">
+          	 <div id="pay" tv_type="tv_button" tv_css="css1,css2">支付</div>
+             <div id="return" tv_type="tv_button" tv_css="css1,css2">返回</div>         	
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot02">
+    <ul>
+      <li id="tv_index" tv_type="tv_radio" tv_css="css1,css2,css3,css4" tv_name='menu' tv_value='回到首页'>回到首页</li>
+    </ul>
+  </div>
+</div>
+<script type="text/javascript" src="static/tv_query/tvQuery.js"></script> 
+<script>
+$tv(function(){
+	$tv.loadInit({id:'bank_01'});
+	$tv('.bank').val(1);
+	$tv('#pay').ok(function(){
+		window.location.href='paySuc.html'
+	})	
+});	
+</script>
+</body>
+</html>

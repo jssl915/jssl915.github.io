@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"  content="target-densitydpi=device-dpi,user-scalable=no" />
+<title>linkSelect</title>
+<link href="../static/tv_query/css/tv_default.css" rel="stylesheet" type="text/css" />
+<link href="../static/tv_query/css/tv_extend.css" rel="stylesheet" type="text/css" />
+<style>
+body{background:#BFC9DA;font-family: "宋体";font-size: 27px;}
+.content{width:1280px;margin:0 auto; }
+.title{text-align:center;margin:40px auto;font-size:30px;color:#990033}
+</style>
+</head>
+<body>
+<div id="content" class="content">
+	<div class="title">下拉联动</div>  
+    <div style="margin-left:200px;">
+        <table>
+            <tr>  
+                <td><div id="tv1" tv_type="tv_button">全部分类</div></td>
+                <td><div id="tv2" tv_type="tv_button">全城</div></td>
+                <td><div id="tv3" tv_type="tv_button">智能排序</div></td>
+            </tr>
+        </table>
+    </div>
+</div>  
+<script type="text/javascript" src="../static/tv_query/tvQuery.js"></script> 
+<script type="text/javascript" src="../static/tv_query/tvExtend.js"></script> 
+<script type="text/javascript">
+var obj = {		
+	css1:['one_select1','one_select2'],//有右键头
+	css2:['two_select1','two_select2'],//没右键头	
+data:[
+		{one:{id:'0',name:'全部分类',level:0}},
+		{one:{id:'1',name:'美食'},
+		 two:[{id:'1',name:'火锅'},
+		 	  {id:'1',name:'自助餐'},
+			  {id:'1',name:'西餐'},
+			  {id:'1',name:'日韩料理'},
+			  {id:'1',name:'蛋糕甜点'},
+			  {id:'1',name:'烧烤烤鱼'},
+			  {id:'1',name:'川湘菜'},
+			  {id:'1',name:'江浙菜'},
+			  {id:'1',name:'京菜'},
+			  {id:'1',name:'素食'},
+			  {id:'1',name:'清真菜'},
+			  {id:'1',name:'台湾菜'},
+			  {id:'1',name:'特色菜'},
+			  {id:'1',name:'咖啡酒吧'},
+			  {id:'1',name:'其它美食'}]},
+		{one:{id:'2',name:'酒店',level:0},
+		 two:[{id:'2',name:'经济型酒店'},
+		 	  {id:'2',name:'豪华酒店'}]},
+		{one:{id:'3',name:'电影'}},
+		{one:{id:'4',name:'休闲娱乐'},
+		 two:[{id:'4',name:'电影'},
+			 {id:'4',name:'KTV'},
+			 {id:'4',name:'温泉/洗浴'},
+			 {id:'4',name:'足疗按摩'},
+			 {id:'4',name:'运动健身'},
+			 {id:'4',name:'桌游/电玩'},
+			 {id:'4',name:'密室逃脱'},
+			 {id:'4',name:'咖啡酒吧'},
+			 {id:'4',name:'演出赛事'},
+			 {id:'4',name:'DIY手工'},
+			 {id:'4',name:'真人CS'},
+			 {id:'4',name:'4D/5D电影'},
+			 {id:'4',name:'其它娱乐'}]},
+		{one:{id:'5',name:'生活服务'},
+		 two:[{id:'5',name:'母婴亲子'},
+			 {id:'5',name:'摄影写真'},
+			 {id:'5',name:'体检保健'},
+			 {id:'5',name:'汽车服务'},
+			 {id:'5',name:'照片冲印'},
+			 {id:'5',name:'培训课程'},
+			 {id:'5',name:'鲜花婚庆'},
+			 {id:'5',name:'服饰服务'},
+			 {id:'5',name:'配镜'},
+			 {id:'5',name:'其它生活'}]},
+		{one:{id:'6',name:'丽人'},
+		 two:[{id:'6',name:'美发'},
+			 {id:'6',name:'美甲'},
+			 {id:'6',name:'美容SPA'},
+			 {id:'6',name:'瑜伽/舞蹈'}]},
+		{one:{id:'7',name:'旅游'},
+		 two:[{id:'7',name:'本地/周边游'},
+		 	 {id:'7',name:'景点门票'}]
+		}
+	]
+}
+var obj1 = {		
+	css1:['one_select1','one_select2'],//有右键头
+	css2:['two_select1','two_select2'],//没右键头
+	data:[
+		{one:{id:'7',name:'全城'}},
+		{one:{id:'7',name:'江汉区'},
+		 two:[{id:'7',name:'江路步行街'},{id:'7',name:'武汉广场'},{id:'7',name:'西北湖'},{id:'7',name:'汉口火车站'},{id:'7',name:'菱角湖'},{id:'7',name:'青年路/常青路'},{id:'7',name:'六渡桥/汉武街'}]},
+		{one:{id:'7',name:'武昌区'},two:[{id:'7',name:'汉街/水果湖'},{id:'7',name:'首义汇'},{id:'7',name:'阅马场'},{id:'7',name:'徐东大街'},{id:'7',name:'付家坡/大东门'},{id:'7',name:'武昌火车站'},{id:'7',name:'南湖花园'},{id:'7',name:'汉街'},{id:'7',name:'司门口'},{id:'7',name:'中南路'},{id:'7',name:'丁字桥'},{id:'7',name:'岳家嘴'},{id:'7',name:'和平大首积玉桥'},{id:'7',name:'白沙州'}]},
+		{one:{id:'7',name:'硚口区'},two:[{id:'7',name:'硚口路'},{id:'7',name:'古田路'},{id:'7',name:'武胜路凯德广场'},{id:'7',name:'武胜路'},{id:'7',name:'汉西'}]},
+		{one:{id:'7',name:'青山区'},two:[{id:'7',name:'武汉火车站'},{id:'7',name:'武钢厂区'},{id:'7',name:'工业路'},{id:'7',name:'经钢城'},{id:'7',name:'欢乐大首'},{id:'7',name:'余家头'},{id:'7',name:'紫林花园'}]},
+		{one:{id:'7',name:'江岸区'},two:[{id:'7',name:'客运港'},{id:'7',name:'台北路'},{id:'7',name:'百步亭'},{id:'7',name:'解放公园'},{id:'7',name:'武汉天地'},{id:'7',name:'吉庆街'},{id:'7',name:'三阳路'}]},
+		{one:{id:'7',name:'东西湖区'},two:[{id:'7',name:'吴家山'},{id:'7',name:'常青花园'},{id:'7',name:'金银湖'}]},
+		{one:{id:'7',name:'江夏区'},two:[{id:'7',name:'藏龙岛'},{id:'7',name:'纸坊'},{id:'7',name:'大花岭'},{id:'7',name:'庙山'},{id:'7',name:'梁子湖'}]},		
+		{one:{id:'7',name:'近郊'},two:[{id:'7',name:'仙桃市'},{id:'7',name:'天门市'}]}	
+	]
+}
+var obj3 = {		
+	css1:['two_select1','two_select2'],//没右键头	
+	data:[
+		{one:{id:'1',name:'智能排序'}},
+		{one:{id:'1',name:'好评优先'}},
+		{one:{id:'1',name:'离我最近'}},
+		{one:{id:'1',name:'优惠价最低'}}		
+	]
+}
+
+$tv(function(){
+	$tv.loadInit({id:'tv1'});//初始化方法
+	//$tv.setSupportMouse(false);	
+	var css =['button1','button2'];
+	//给按钮绑定样式
+	$tv('#tv1').attr('tv_css',css);
+	$tv('#tv2').attr('tv_css',css);
+	$tv('#tv3').attr('tv_css',css);
+	//给下拉框1添加方法
+	$tv('#tv1').ok(function(){linkSelect.init(this.id,obj);});
+	$tv('#tv1').left(function(){
+		var oDiv = document.getElementById('linkBoard');
+		oDiv!=undefined&&document.body.removeChild(oDiv);
+		return true;
+	});
+	$tv('#tv1').right(function(){
+		var oDiv = document.getElementById('linkBoard');
+		oDiv!=undefined&&document.body.removeChild(oDiv);
+		return true;
+	});
+	$tv('#tv1').down(function(){
+		document.getElementById('oneSelect_0')!=undefined&&($tv.setFocusId('oneSelect_0'));
+	})
+	//给下拉框2添加方法
+	$tv('#tv2').ok(function(){linkSelect.init(this.id,obj1);});
+	$tv('#tv2').left(function(){
+		var oDiv = document.getElementById('linkBoard');
+		oDiv!=undefined&&document.body.removeChild(oDiv);
+		return true;
+	});
+	$tv('#tv2').right(function(){
+		var oDiv = document.getElementById('linkBoard');
+		oDiv!=undefined&&document.body.removeChild(oDiv);
+		return true;
+	});
+	$tv('#tv2').down(function(){
+		document.getElementById('oneSelect_0')!=undefined&&($tv.setFocusId('oneSelect_0'));
+	})
+	//给下拉框3添加方法
+	$tv('#tv3').ok(function(){		
+		linkSelect.init(this.id,obj3);
+	});
+	$tv('#tv3').left(function(){
+		var oDiv = document.getElementById('linkBoard');
+		oDiv!=undefined&&document.body.removeChild(oDiv);
+		return true;
+	});
+	$tv('#tv3').right(function(){
+		var oDiv = document.getElementById('linkBoard');
+		oDiv!=undefined&&document.body.removeChild(oDiv);
+		return true;
+	});
+	$tv('#tv3').down(function(){		
+		document.getElementById('oneSelect_0')!=undefined&&($tv.setFocusId('oneSelect_0'));
+	})
+})
+
+function goBack(){
+	window.location.href="http://192.168.1.59/TV/index.html";
+}
+</script>
+</body>
+</html>

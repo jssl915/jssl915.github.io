@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>更多页面</title>
+<link href="static/style.css" rel="stylesheet" type="text/css" />
+<link href="static/tv_query/css/tv_extend.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="box">
+  <div class="head">
+    <div class="logo"></div>
+    <div class="hotline">生活圈热线电话：027-8888888</div>
+  </div>
+  <div class="center">
+  	  <div class="username">欢迎进入个人中心,廖伟!</div>
+      <div class="more">
+        <ul>
+            <li id="li1" style="background:#a32622" tv_type="tv_button" tv_css="css1,css2">
+                <div class="lable" style="background:url(static/images/collect_icon.png);width:96px;height:94px;"></div>
+                <div class="recommend">服务收藏</div>
+                <div class="info">您收藏的商品有3件价格有变动，有2件商品已经下架！</div>    
+            </li>
+            <li id="li2" style="background:#eb8d11" tv_type="tv_button" tv_css="css1,css2">
+                <div class="lable" style="background:url(static/images/collect_icon.png);width:96px;height:94px;"></div>
+                <div class="recommend">商户收藏</div>    
+                <div class="info">有3个收藏商家发布新服务！</div>       
+            </li>
+            <li id="li3" style="background:#3b8882" tv_type="tv_button" tv_css="css1,css2">
+                <div class="lable" style="background:url(static/images/order_icon.png);width:97px;height:100px;"></div>
+                <div class="recommend">已消费订单</div> 
+                <div class="info">有10条服务待评价！</div>      
+            </li>
+            <li id="li4" style="background:#812a61" tv_type="tv_button" tv_css="css1,css2">
+                <div class="lable" style="background:url(static/images/message_icon.png);width:105px;height:74px;"></div>
+                <div class="recommend">未消费订单</div>
+                <div class="info">您还有2个服务未消费！</div>         
+            </li>
+        </ul>
+        <ul>
+            <li id="li5" style="background:#0b76ae" tv_type="tv_button" tv_css="css1,css2">
+                <div class="lable" style="background:url(static/images/message_icon.png);width:105px;height:74px;"></div>
+                <div class="recommend">个人消息</div>
+                <div class="info">您还有7条消息未读！</div>        
+           </li>           
+        </ul>
+      </div>
+  </div>
+  <div class="foot02">
+    <ul>
+       <li id="tv_index" tv_type="tv_radio" tv_css="css1,css2,css3,css4" tv_name='menu' tv_value='回到首页'>回到首页</li>
+    </ul>
+  </div>
+</div>
+<script type="text/javascript" src="static/tv_query/tvQuery.js"></script>
+<script type="text/javascript" src="static/tv_query/tvExtend.js"></script>  
+<script>
+$tv(function(){
+	$tv.loadInit({id:'li1'});
+	$tv('#tv_index').ok(function(){
+		window.location.href='index.html'
+	})
+})
+</script>
+</body>
+</html>

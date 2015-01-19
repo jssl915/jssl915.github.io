@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>门店地址</title>
+<link href="static/style.css" rel="stylesheet" type="text/css" />
+<link href="static/tv_query/css/tv_extend.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="box">
+  <div class="head">
+    <div class="logo"></div>
+    <div class="hotline">生活圈热线电话：027-8888888</div>
+  </div>
+  <div class="main">
+    <div class="title">商户名称：七天乐酒店</div>
+    <div id="list" class="xinxi"></div>
+    <div class="fanye3">    	 
+        <span id="pre_page" tv_type="tv_button" tv_css="precss1,precss2"></span>
+        <span id="page_text" tv_type="tv_text" maxlength="4" content="number" tv_css="text1,text2">1</span>
+        <span style="float:left;margin-right:10px;">/10</span>        
+        <span id="next_page" tv_type="tv_button" tv_css="nextcss1,nextcss2"></span>
+    </div>   
+  </div>
+  <div class="foot02">
+    <ul>
+      <li id="tv_index" tv_type="tv_radio" tv_css="css1,css2,css3,css4" tv_name='menu' tv_value='回到首页'>回到首页</li>
+    </ul>
+  </div>
+</div>
+<script type="text/javascript" src="static/tv_query/tvQuery.js"></script> 
+<script type="text/javascript" src="static/tv_query/tvExtend.js"></script> 
+<script>
+var data =[
+	{name:'七天乐（光谷店）',phone:'027-86868686',address:'武汉市洪山区鲁磨路475号XX大厦4楼武汉市洪山区鲁磨路475号XX大厦4楼',star:4,comment:56},
+	{name:'七天乐（光谷店）',phone:'027-86868686',address:'武汉市洪山区鲁磨路475号XX大厦4楼',star:3,comment:26},
+	{name:'七天乐（光谷店）',phone:'027-86868686',address:'武汉市洪山区鲁磨路475号XX大厦4楼',star:1,comment:46},
+	{name:'七天乐（光谷店）',phone:'027-86868686',address:'武汉市洪山区鲁磨路475号XX大厦4楼',star:5,comment:56},
+	{name:'七天乐（光谷店）',phone:'027-86868686',address:'武汉市洪山区鲁磨路475号XX大厦4楼',star:4,comment:36}
+]
+$tv(function(){
+	loadList();
+	$tv.loadInit({id:'line_name_0'});
+	bindMethod();
+})
+function loadList(){
+	var listArray=[];
+	listArray.push('<table border="0" cellpadding="0" cellspacing="0" width="100%">');
+	listArray.push('<tr><th width="17%" height="45" align="center">门店名称</th>');
+	listArray.push('<th width="14%" height="45" align="center">门店电话</th>');
+	listArray.push('<th width="39%" height="45" align="center">门店详细地址</th>');
+	listArray.push('<th width="30%" height="45" align="center">评分</th></tr>');	
+	for(var i=0;i<5;i++){
+		listArray.push('<tr>');
+		listArray.push('<td height="78" align="center"><span id="line_name_'+i+'" tv_type="tv_button" tv_css="scss1,scss2">'+data[i].name+'</span></td>');
+		listArray.push('<td height="78" align="center">'+data[i].phone+'</td>');
+		listArray.push('<td height="78" align="center">'+data[i].address+'</td>');
+		listArray.push('<td height="78" align="center"><span id="star_'+i+'" class="tv_star" ></span>'+data[i].star+'分（共<span id="line_comment_'+i+'" tv_type="tv_button" tv_css="scss1,scss2">'+data[i].comment+'</span>人评价）</td>');
+		listArray.push('</tr>');	     
+	}	
+	document.getElementById('list').innerHTML = listArray.join('');
+	for(var j=0;j<5;j++){star.info('star_'+j,data[j].star)}
+}
+function bindMethod(){
+	for(var i =0;i<5;i++){
+		bindSingle(i);
+	}
+}
+function bindSingle(i){
+	$tv('#line_name_'+i).ok(function(){
+		alert(data[i].name);
+	});
+	$tv('#line_comment_'+i).ok(function(){
+		alert(data[i].comment);
+	})
+}
+</script>
+</body>
+</html>

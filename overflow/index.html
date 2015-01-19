@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>多行文本溢出</title>
+<script type="text/javascript" src="transition/jquery-2.1.1.js"></script> 
+<style>
+.jquery_overflow {
+    background: #EEE;
+    width: 400px;
+    height: 3em;
+    margin: 1em;
+}
+.jquery_overflow p {
+    margin: 0;
+    line-height: 1.5em;
+}
+.js_overflow {
+    background: #EEE;
+    width: 400px;
+    height: 3em;
+    margin: 1em;
+}
+.js_overflow p {
+    margin: 0;
+    line-height: 1.5em;
+}
+.css_overflow{
+	position:relative;
+	background: #EEE;
+    width: 400px;
+    height: 3em;
+    margin: 1em;
+	line-height:1.5em; 
+	overflow:hidden; 
+	z-index:1;
+}
+.css_overflow span{
+	position:absolute; right:0; bottom:0; z-index:10;
+	padding:0 20px 1px 45px;
+	background: url("http://css88.b0.upaiyun.com/css88/2014/09/ellipsis_bg.png") repeat-y scroll 0 0 rgba(0, 0, 0, 0);	
+}
+
+.css3_overflow p {
+	width: 400px;
+	margin: 1em;
+	background: #EEE;
+    position:relative;
+    line-height:1.4em;
+    height:4.2em;
+    overflow:hidden;
+}
+.css3_overflow p::after {
+    content:"...";   
+    position:absolute;
+    bottom:0;
+    right:0;
+    padding:0 20px 1px 45px;
+    background:url(ellipsis_bg.png) repeat-y;
+}
+</style>
+</head>
+<body>
+<h2 style="text-align:center">多行文本溢出解决方案</h2>
+<div style="margin:10px auto;width:400px;">
+    <div class="jquery_overflow"><p>(jquery实现) 多行文本溢出显示省略号,这是一个测试多行文本溢出的页面。多行文本溢出显示省略号,这是一个测试多行文本溢出的页面</p></div>
+        
+    <div class="jquery_overflow"><p>(jquery实现) This week we will be conducting a "brownout" of all misconfigured GitHub Pages sites. If your GitHub Pages site's DNS is pointed at an out-of-date IP address, we will intermittently serve a warning page in place of your site's content</p></div>
+    
+    <div class="js_overflow"><p>(js实现) 多行文本溢出显示省略号,这是一个测试多行文本溢出的页面。多行文本溢出显示省略号,这是一个测试多行文本溢出的页面</p></div>
+        
+    <div class="js_overflow"><p>(js实现) This week we will be conducting a "brownout" of all misconfigured GitHub Pages sites. If your GitHub Pages site's DNS is pointed at an out-of-date IP address, we will intermittently serve a warning page in place of your site's content</p></div>
+    
+    <div class="css_overflow">
+     (css实现) 固定一个喜欢的网站可不可以？当然！把每天常去的网站统统固定到开始屏幕中。如何固定？打开 IE10，在网页空白处点击鼠标右键，在应用栏中点击“图钉”图标即可完成固定。
+     <span>...</span>
+    </div>
+    
+    <div class="css_overflow">
+    (css实现) This week we will be conducting a "brownout" of all misconfigured GitHub Pages sites. If your GitHub Pages site's DNS is pointed at an out-of-date IP address, we will intermittently serve a warning page in place of your site's content
+    <span>...</span>
+    </div>
+    
+    <div class="css3_overflow">
+        <p>
+         (css3实现) 固定一个喜欢的网站可不可以？当然！把每天常去的网站统统固定到开始屏幕中。如何固定？打开 IE10，在网页空白处点击鼠标右键，在应用栏中点击“图钉”图标即可完成固定。
+         </p>
+        <p>
+        (css3实现) This week we will be conducting a "brownout" of all misconfigured GitHub Pages sites. If your GitHub Pages site's DNS is pointed at an out-of-date IP address, we will intermittently serve a warning page in place of your site's content
+        </p>
+    </div>
+</div>
+<script>
+$(".jquery_overflow").each(function(i){
+    var divH = $(this).height();
+    var $p = $("p", $(this)).eq(0);	
+    while ($p.outerHeight() > divH) {
+        $p.text($p.text().replace(/(\s)*([a-zA-Z0-9]+|\W)(\.\.\.)?$/, "..."));
+    };
+});
+
+var oDivs = document.querySelectorAll('.js_overflow');
+for(var i=0;i<oDivs.length;i++){
+	var divH = oDivs[i].offsetHeight;
+    var oP = oDivs[i].querySelector('p');	
+	while (oP.offsetHeight> divH) {
+        oP.innerHTML = (oP.innerHTML.replace(/(\s)*([a-zA-Z0-9]+|\W)(\.\.\.)?$/, "..."));
+    };
+}
+</script>
+</body>
+</html>

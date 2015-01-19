@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>登陆</title>
+<link href="static/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="box">
+  <div class="head">
+    <div class="logo"></div>
+    <div class="hotline">生活圈热线电话：027-8888888</div>
+  </div>
+  <div class="login">
+    <div class="login_content">
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td>账号</td>
+          <td colspan="3"><div id="username" tv_type="tv_text" tv_css="css1,css2" placeholder="请输入用户名..."></div></td>
+        </tr>
+        <tr>
+          <td>密码</td>
+          <td colspan="3"><div id="password" tv_type="tv_password" tv_css="css1,css2" placeholder="请输入密码..."></div></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colspan="3"><div id="login" tv_type="tv_button" tv_css="b_css1,b_css2">登陆</div></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><div class="button01" id="register" tv_type="tv_button" tv_css="b_css3,b_css4">注册</div></td><td width="12"></td>
+          <td><div class="button01" id="findPw" tv_type="tv_button" tv_css="b_css3,b_css4">找回密码</div></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="foot02">
+    <ul>
+      <li id="tv_index" tv_type="tv_radio" tv_css="css1,css2,css3,css4" tv_name='menu' tv_value='回到首页'>回到首页</li>
+    </ul>
+  </div>
+</div>
+<script type="text/javascript" src="static/tv_query/tvQuery.js"></script> 
+<script>
+$tv(function(){
+	$tv.loadInit({id:'username'});
+	$tv('#tv_index').ok(function(){
+		window.location.href='index.html'
+	})
+})
+</script>
+</body>
+</html>

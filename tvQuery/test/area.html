@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"  content="target-densitydpi=device-dpi,user-scalable=no" />
+<title>选择地区</title>
+<link href="../static/tv_query/css/tv_default.css" rel="stylesheet" type="text/css" />
+<link href="../static/tv_query/css/tv_extend.css" rel="stylesheet" type="text/css" />
+<link href="../static/style.css" rel="stylesheet" type="text/css" />
+<style>
+body{background:#BFC9DA;font-family: "黑体";font-size: 27px;}
+.content{width:1280px;margin:0 auto; }
+.title{text-align:center;margin:10px auto;font-size:30px;color:#990033}
+.c_button{position:relative;margin-left:200px;}
+.lable_5{position:absolute;left:-180px;top:0;color:#0000FF}
+/**位置样式*/
+#tv_7{position:absolute;left:0;top:0px;}
+#tv_8{position:absolute;left:250px;top:0px;}
+</style>
+
+</head>
+<body>
+<div id="content" class="content">
+	<div class="title">组件</div>
+    <div class="c_button">             
+        <div class="lable_5">地区选择框:</div>
+        <div id="tv_7" tv_type='tv_text'>武汉</div>  
+        <div id="tv_8" tv_type='tv_text'></div>                
+    </div>  
+</div>  
+
+<script type="text/javascript" src="../static/tv_query/tvQuery.js"></script> 
+<script type="text/javascript" src="../static/tv_query/tvExtend.js"></script>
+<script src='../static/tv_query/dict.js'></script> 
+<script type="text/javascript" src="../static/tv_query/tvArea.js"></script>
+
+<script src='js/dict.js'></script>
+<script type="text/javascript">
+$tv(function(){		
+	$tv.loadInit();//初始化方法	
+	$tv.setFocusId('tv_7');
+	$tv('#tv_7').ok(function(){
+		tvArea.init(this.id);
+	});	
+})
+</script>
+</body>
+</html>
