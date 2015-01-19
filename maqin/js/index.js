@@ -116,7 +116,8 @@
 			},1000)   
 	   },
 	   //时钟
-	   tick: function(){	
+	   tick: function(){
+		    var _this = this;
 			var years,months,days,hours, minutes, seconds;
 			var intYears,intMonths,intDays,intHours, intMinutes, intSeconds;
 			var today;
@@ -156,7 +157,9 @@
 				seconds = intSeconds+" ";
 			}
 			document.getElementById('title_box').innerHTML = hours+minutes+seconds+ '<br>星期'+'日一二三四五六'.charAt(new Date().getDay())+'<br>'+years+months+days;
-			window.setTimeout(this.tick, 1000);
+			window.setTimeout(function(){
+				_this.tick();			   
+			}, 1000);
 		},
 		//弹框
 		showDialog:function(){
