@@ -1,0 +1,48 @@
+<!DOCTYPE html>  
+<html>
+<%@ include file="taglibs.jsp"%>
+<%@ page contentType="text/html; charset=UTF-8"%>
+<head>
+<meta name ="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+<title>城市切换</title>
+</head>
+<body>
+<div data-role="page" id="page1">
+  <div data-role="header">
+    	<div id="search_title">
+     		<div onClick="index();" data-rel="back">
+	    		<span class="arrow_left" style="position:absolute;top:10px;left:0;"></span>
+	    		<span style="position:absolute;left:25px;">返回</span>
+    		</div> 
+    	</div>
+  </div>
+  <div data-role="content">
+  	<input type="search" name="search" id="searchText" placeholder="输入城市名或拼音首字母">
+  	<div id="showCity">
+	  	<div style="height:30px;padding:5px 0;border-bottom:1px solid #D5D5D5;">
+		  	<div style="float:left;margin-top:5px;font-weight:bold;">当前定位城市：</div>
+		  	<div id="currentCity" style="float:right;text-align:center;line-height:30px;width:80px;height:30px;background:#34b9af;color:#fff">武汉市</div>
+	  	</div>
+	  	<fieldset data-role="controlgroup">
+		  	<div style="font-weight:bold;">热门城市：</div>
+		  	<div id="hotCity"></div>
+	  	</fieldset>
+	  	<fieldset data-role="controlgroup">
+	  	<div style="font-weight:bold;">全部城市：</div>
+	  	<div id="allCity"></div>
+	  	</fieldset>
+  	</div>
+  	<div id="selectCity">
+  		<fieldset data-role="controlgroup">
+  			<div id="searchCity"></div>
+  		</fieldset>
+  	</div>
+  </div>
+  <script>
+  	function index(){
+		$.mobile.changePage('main.html',{transition: "slide",changeHash: true});
+	}
+  </script>
+</div>
+</body>
+</html> 

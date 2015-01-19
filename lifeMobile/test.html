@@ -1,0 +1,35 @@
+<!DOCTYPE html>  
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">        
+    <link rel="stylesheet" href="js/jm/jquery.mobile-1.4.4.min.css">       
+    <script src="js/jm/jquery.js"></script>       
+    <script src="js/jm/jquery.mobile-1.4.4.min.js"></script>
+    <script src="js/mobile-util.js"></script>
+	<script src="js/mobile-extend.js"></script>
+	<script src="js/mobile-common.js"></script>
+	<link href="css/mobile-style.css" rel="stylesheet" type="text/css"/>    
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>       
+	<title>登录</title>
+</head>
+<body>
+<div data-role="page" id="page1">
+  <button onclick="jm.alert(123)">alert</button>
+  <button onclick="toConfirm()">confirm</button>
+</div>
+<script>
+function toConfirm(){
+	jm.confirm({	
+		id:'page1',
+		content:'确定要删除号吗？',
+		onClose:function(v){
+			if(v){
+				alert("确定")
+				return;
+			}
+		}
+	});
+}
+</script>
+</body>
+</html> 

@@ -1,0 +1,65 @@
+<!DOCTYPE html>  
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">        
+    <link rel="stylesheet" href="js/jm/jquery.mobile-1.4.4.min.css">       
+    <script src="js/jm/jquery.js"></script>       
+    <script src="js/jm/jquery.mobile-1.4.4.min.js"></script>
+    <script src="js/mobile-util.js"></script>
+	<script src="js/mobile-extend.js"></script>
+	<script src="js/mobile-common.js"></script>
+	<link href="css/mobile-style.css" rel="stylesheet" type="text/css"/>    
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>       
+	<title>登录</title>
+</head>
+<body>
+<div data-role="page" id="page1">
+  <div data-role="header">
+    	<div id="search_title">
+     		<div onClick="goLoginBack();" data-rel="back">
+	    		<span class="arrow_left" style="position:absolute;top:10px;left:0;"></span>
+	    		<span style="position:absolute;left:25px;">返回</span>
+    		</div> 
+    		<span style="position:absolute;top:0;bottom:0;left:0;right:0;margin:auto;width:36px;">登录</span>
+    	</div>
+  </div>
+  <div data-role="content">
+    <fieldset data-role="controlgroup">
+	  <input type="text" name="userName" id="userName"  placeholder="手机/邮箱/用户名">
+	  <input type="passWord" name="passWord" id="passWord" placeholder="密码">
+	</fieldset>
+	<a href="#" onClick="login('${sessionScope.nextUrl}')"  data-role="button" style="background:#34b9af;color:#fff;border:0;">登录</a>
+	<a href="#" onClick="register();" style="color:#34b9af">免费注册</a>
+	<a href="#" onClick="findPwd();" style="color:#34b9af;float:right">找回密码</a>
+  </div>
+  <script>
+ 	function login(nextUrl){
+		var username = $('#userName').val();
+		var password = $('#passWord').val();
+		if(!username){jm.alert('用户名不能为空');return}
+		if(!password){
+			jm.alert('用户密码不能为空');
+			return
+		}
+		$.post(ctx+"/system/login", {username:username,password:password},
+		   function(data){
+				if(data=='true'||data==true){
+					if(nextUrl!=''){
+						var data = parseURL(ctx+nextUrl);
+						$.mobile.changePage(ctx+nextUrl, {
+							  transition: "slide",
+							  data:data.params,
+							  changeHash: true
+							});
+					}else{
+						$.mobile.changePage(ctx+"/index/main",{transition: "slide",changeHash: true});
+					}
+				}else{
+					jm.alert(data);
+				}
+		   });
+	}
+  </script>
+</div>
+</body>
+</html> 

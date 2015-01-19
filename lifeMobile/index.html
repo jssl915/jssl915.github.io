@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>main</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">        
+    <link rel="stylesheet" href="js/jm/jquery.mobile-1.4.4.min.css">       
+    <script src="js/jm/jquery.js"></script>       
+    <script src="js/jm/jquery.mobile-1.4.4.min.js"></script>
+    <script src="js/mobile-util.js"></script>
+	<script src="js/mobile-extend.js"></script>
+	<script src="js/mobile-common.js"></script>
+	<link href="css/mobile-style.css" rel="stylesheet" type="text/css"/>    
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>       
+</head>
+<body>
+  <div data-role="page" id="home">
+    <div data-role="header" data-position="fixed" data-tap-toggle="false" style="background:#34b9af;border:0;">
+	   	<form id="search_title" method="post" >
+			<span id="area1">武汉市</span>
+		 	<span id="area2" class="arrow_down"></span>
+	        <span id="area3" class="position"></span>
+	        <span id="area4"><input type="search" name="queryText" id="search" placeholder="输入商家、分类或商圈..." style="font-size:0.8em"></span>
+	   	</form>
+    </div>
+    <div data-role="content" style="margin:0;padding:0">
+    	<div id="index_ad">
+	    	<ul id="changeUl">
+                <li><img id="avd_0" class="avd" src="images/avd1.jpg"></li>
+                <li><img id="avd_1" class="avd" src="images/avd2.jpg"></li>
+                <li><img id="avd_2" class="avd" src="images/avd3.jpg"></li>
+                <li><img id="avd_3" class="avd" src="images/avd4.jpg"></li>
+	    	</ul>
+	    	<ul id="numUl">	    		
+                <li id="num_li_0" class="css1"><span></span></li>
+                <li id="num_li_1" class="css1"><span></span></li>
+                <li id="num_li_2" class="css1"><span></span></li>
+                <li id="num_li_3" class="css1"><span></span></li>
+	    	</ul>
+    	</div>
+    	
+    	<div id ="index_menu">
+	     	<div class="ui-grid-c">
+				<div class="ui-block-a"><a href="#" onClick="toMenu(${nodeList[0].nodeId1});" data-role="button" style="background:#a32622;" class="menu">
+				<img src="images/canyin.png"><span>美食</span>
+				</a></div>
+				<div class="ui-block-b"><a href="#" onClick="toMenu(${nodeList[1].nodeId1});" data-role="button" style="background:#eb8d11;" class="menu">
+				<img src="images/zhusu.png"><span>酒店</span>
+				</a></div>
+				<div class="ui-block-c"><a href="#" onClick="toMenu(${nodeList[2].nodeId1});" data-role="button" style="background:#3b8882;" class="menu">
+				<img src="images/xiuxianyule.png"><span>电影</span>
+				</a></div>
+				<div class="ui-block-d"><a href="#" onClick="toMenu(${nodeList[3].nodeId1});" data-role="button" style="background:#812a61;" class="menu">
+				<img src="images/shenghuo.png"><span>生活服务</span>
+				</a></div>  
+		   </div> 
+		   <div class="ui-grid-c" style="margin-top:10px;">
+				<div class="ui-block-a"><a href="#" onClick="toMenu(${nodeList[4].nodeId1});" data-role="button" style="background:#dc2f1e;" class="menu"><img src="images/lingshouye.png"><span>休闲娱乐</span></a></div>
+				<div class="ui-block-b"><a href="#" onClick="toMenu(${nodeList[5].nodeId1});" data-role="button" style="background:#519b5c;" class="menu"><img src="images/dingpiao.png"><span>旅游</span></a></div>
+				<div class="ui-block-c"><a href="#" onClick="toMenu(${nodeList[6].nodeId1});" data-role="button" style="background:#291962;" class="menu"><img src="images/movie.png"><span>购物</span></a></div>
+				<div class="ui-block-d"><a href="#" onClick="toMenu(${nodeList[7].nodeId1});" data-role="button" style="background:#0b76ae;" class="menu"><img src="images/liren.png"><span>丽人</span></a></div> 
+   		   </div>
+      	</div>
+      	<div id="index_recommend">
+			<div style="margin:10px 0 5px 0;padding-left:5px;color:#000;font-weight:800;">今日推荐</div>
+			<div class="ui-grid-a" style="padding:5px 5px 0 5px;margin:5px 5px 10px 5px;background:#fff;">
+				<div class="ui-block-a" style="width:45%">
+					<img class="index_pic" src="images/avd5.jpg" style="width:100%;" onClick="toProd(${todayList[0].prodId})"/>
+				</div>
+				<div class="ui-block-b" style="margin-left:3%;width:52%;">
+					<div class="today_res">
+						<div class="today_title">湘鄂情-代金券</div>
+						<div><span class="today_price1">35</span>
+							<span class="today_price2">元</span>
+							<span class="today_mile">1077m</span>
+						</div>
+						<div class="today_remark">湘鄂情以湘、鄂菜为主，同时收取鲁、川、淮扬等各大菜系的精华，烹四季</div>
+					</div>
+				</div>
+			</div>
+			<div class="ui-grid-a" style="padding:5px 5px 0 5px;margin:5px 5px 10px 5px;background:#fff">
+				<div class="ui-block-a" style="width:45%">
+					<img class="index_pic" src="images/avd2.jpg" style="width:100%;" onClick="toProd(${todayList[1].prodId})"/>
+				</div>
+				<div class="ui-block-b" style="margin-left:3%;width:52%;">
+					<div class="today_res">
+						<div class="today_title">红石榴眼霜</div>
+						<div><span class="today_price1">200</span>
+							<span class="today_price2">元</span>
+							<span class="today_mile">577m</span>
+						</div>
+						<div class="today_remark">使用后能给肌肤抵御日间水份流失及环境刺激的功效，强化肌肤吸收更多养</div>
+					</div>
+				</div>
+			</div>
+      	</div>
+	</div>
+    
+    <div data-role="footer"  data-position="fixed" data-tap-toggle="false">
+   	     <div class="ui-grid-c">
+			<div class="ui-block-a">
+				<div class="foot_menu"><span style="color:#0680f1">首页</span><div class="home01"></div></div>
+			</div>
+			<div class="ui-block-b">
+				<div class="foot_menu"><span>关注</span><div class="favorite02"></div></div>
+			</div>
+			<div class="ui-block-c">
+				<div class="foot_menu"><span>订单</span><div class="order02"></div></div>
+			</div>
+			<div class="ui-block-d">
+				<div class="foot_menu" onclick="more()" ><span>更多</span><div class="more02"></div></div>  
+	   		</div> 
+    	</div>
+    </div>
+</div>
+<script>
+$(function(){
+    reSize();
+    window.onresize = function(){reSize();} 
+    //绑定首页广告播放功能
+    bindIndexAd();
+    $('#area1').click(function(){		
+    	area.showDistrict();
+    });
+    $('#area2').click(function(){
+    	area.showDistrict();
+    });
+    $('#area3').click(function(){
+    	
+    });
+    $('#search').click(function(){
+    	$.mobile.changePage('${ctx}/search/init',{transition: "slide",changeHash: true});
+    })
+}); 
+function more(){
+	$.mobile.changePage('more.html',{transition: "slide",changeHash: true});
+}
+function reSize(){
+	var w = window.innerWidth; //屏幕宽度
+	$('#area4').width(w-$('#area1').width()-$('#area2').width()-$('#area3').width()-30);
+	var h = w/1.4; //首页广告图片高度
+	$('#index_ad').width(w).height(h+10);
+	$('.avd').width(w).height(h);
+	$('#changeUl').width(w*4).height(h);
+	$('.menu').width(w*0.2).height(w*0.2);
+	$('.index_pic').height($('.index_pic').width()/1.4);
+}
+function toProd(prodId){
+	//alert(prodId);
+}
+
+function bindIndexAd(){
+	var num = 0,timer="",w = window.innerWidth,length = 4; 
+	$('#num_li_0').attr('class','css2');//默认第一个选中
+	document.getElementById('changeUl').style.left =0;
+	$('#index_ad').mouseenter(function(){clearInterval(timer)}); 
+	$('#index_ad').mouseleave(function(){addTimer()}); 
+	$('#index_ad').click(function(){
+		//toProd(advertiseList[num].prodId)
+	});
+	$("#index_ad").on("swipeleft",function(){rightMove()}); 
+	$("#index_ad").on("swiperight",function(){leftMove()});
+	addTimer();
+	function addTimer(){timer = setInterval(function(){move()},3000)}
+	function move(){
+		var oUl = document.getElementById('changeUl');
+		if(num<length-1){
+			$('#num_li_'+num).attr('class','css1');
+			num++;			
+			picMove(oUl,{left:-num*w});
+			$('#num_li_'+num).attr('class','css2');
+		}else{
+			$('#num_li_'+num).attr('class','css1');
+			num = 0;
+			picMove(oUl,{left:0});
+			$('#num_li_'+num).attr('class','css2');
+		}	
+	}
+	function rightMove(){
+		var oUl = document.getElementById('changeUl');
+		if(num<length-1){
+			$('#num_li_'+num).attr('class','css1');
+			num++;			
+			picMove(oUl,{left:-num*w});
+			$('#num_li_'+num).attr('class','css2');
+		}
+	}
+	function leftMove(){
+		var oUl = document.getElementById('changeUl');
+		if(num>0){
+			$('#num_li_'+num).attr('class','css1');
+			num--;		
+			picMove(oUl,{left:(-num)*w});
+			$('#num_li_'+num).attr('class','css2');
+		}
+	}
+	function picMove(obj,json){
+		speedFlag =8;
+		clearInterval(obj.timer);
+		obj.timer=setInterval(function (){
+			var bStop=true;		
+			for(var attr in json){			
+				var iCur=0;//1.取当前的值
+				iCur = parseInt(getStyle(obj,attr));	
+				var iSpeed=(json[attr]-iCur)/speedFlag;//2.算速度
+				iSpeed=iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed);					
+				iCur!=json[attr] && (bStop=false);//3.检测停止			
+				obj.style[attr]=iCur+iSpeed+'px';
+			}	
+			if(bStop){
+				clearInterval(obj.timer);				
+			}
+		}, 30)	
+	}
+}
+
+</script>
+</body>
+
+</html>
