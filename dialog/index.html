@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CSS+JS实现的可随意拖动、最小化最大化的弹出框丨芯晴网页特效丨CsrCode.CN</title>
+<link href="css/dialog.css" rel="stylesheet" type="text/css" />
+<script src="js/dialog.js"></script>
+</head>
+<body>
+<input id="btn1" type="button" value ="打开" style="width:200px;height:30px;margin:30px;"/>
+<div id="drag" style="display:none">
+    <div class="title"><h2 id="dialogTitle">这是一个可以拖动的窗口</h2>
+        <div>
+            <a class="min" href="javascript:;" title="最小化"></a>
+            <a class="max" href="javascript:;" title="最大化"></a>
+            <a class="revert" href="javascript:;" title="还原"></a>
+            <a class="close" href="javascript:;" title="关闭"></a>
+        </div>
+    </div>
+    <div class="resizeL"></div>
+    <div class="resizeT"></div>
+    <div class="resizeR"></div>
+    <div class="resizeB"></div>
+    <div class="resizeLT"></div>
+    <div class="resizeTR"></div>
+    <div class="resizeBR"></div>
+    <div class="resizeLB"></div>
+    <div id="dialogContent" class="content"></div>
+</div>
+<script type="text/javascript">
+window.onload  = function (){
+	var oBtn = document.getElementById('btn1');
+	oBtn.onclick = function(){
+		showBlog();	
+	}
+}
+
+function showBlog(){
+	var oDivFade = document.createElement('div');
+	oDivFade.className = 'alert_fade';
+	oDivFade.id = 'alert_fade';
+	document.body.appendChild(oDivFade);	
+	var oDialog = document.getElementById('drag');
+	oDialog.style.display = 'block';	
+	var dialogTitle = document.getElementById('dialogTitle');
+	var oTitle = get.byClass("title", oDialog)[0];
+	dialogTitle.innerHTML = '窗口';
+	showContent();
+	DialogDrag(oDialog, oTitle);		
+}
+function showContent(){
+	ajax({
+		url: "blog/1.txt",  //请求地址
+		type: "GET",                       //请求方式
+		dataType: "txt",
+		success:function (response, xml) {
+			console.log(response);			
+			var dialogContent = document.getElementById('dialogContent');
+			dialogContent.innerHTML = response.replace(/\r\n/g,'<br/>&nbsp;&nbsp;');	
+		}
+	 });
+}
+function oDivFadeHide(){
+	var oDivFade = document.getElementById('alert_fade');
+	oDivFade!=undefined && document.body.removeChild(oDivFade);
+}
+function oDivFadeShow(){
+	var oDivFade = document.createElement('div');
+	oDivFade.className = 'alert_fade';
+	oDivFade.id = 'alert_fade';
+}
+</script>
+</body>
+</html>
+ 
