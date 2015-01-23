@@ -71,10 +71,15 @@ function DialogDrag(oDrag,oTitle,oSizeDrag){
 			var oEvent=ev||event;		
 			var w = oEvent.clientX; 
 			if(w>=window.innerWidth-10){w = window.innerWidth-10}
-			oDrag.style.width=w-disX+oSizeDrag.offsetWidth+'px';
 			var h = oEvent.clientY;
-			if(h>=window.innerHeight-10){h = window.innerHeight-10}
-			oDrag.style.height=h-disY+oSizeDrag.offsetHeight+'px';
+			if(h>=window.innerHeight-10){h = window.innerHeight-10}	
+			var iW = w-disX+oSizeDrag.offsetWidth;
+			var iH = h-disY+oSizeDrag.offsetHeight;
+			if(iW<=300){iW=300}
+			if(iH<=200){iH=200}
+			oDrag.style.width=iW+'px';
+			oDrag.style.height=iH+'px';
+			
 		};	
 		document.onmouseup=function (){
 			document.onmousemove=null;
