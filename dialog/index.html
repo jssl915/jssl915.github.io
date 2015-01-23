@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>CSS+JS实现的可随意拖动、最小化最大化的弹出框丨芯晴网页特效丨CsrCode.CN</title>
+<title>弹出框</title>
 <link href="css/dialog.css" rel="stylesheet" type="text/css" />
 <script src="js/dialog.js"></script>
 </head>
@@ -46,29 +46,22 @@ function showBlog(){
 	var oTitle = get.byClass("title", oDialog)[0];
 	dialogTitle.innerHTML = '窗口';
 	showContent();
-	DialogDrag(oDialog, oTitle);		
+	var oSizeDrag = get.byClass('resizeBR')[0];
+	DialogDrag(oDialog, oTitle,oSizeDrag);			
 }
+
 function showContent(){
 	ajax({
 		url: "blog/1.txt",  //请求地址
 		type: "GET",                       //请求方式
 		dataType: "txt",
-		success:function (response, xml) {
-			console.log(response);			
+		success:function (response, xml) {					
 			var dialogContent = document.getElementById('dialogContent');
 			dialogContent.innerHTML = response.replace(/\r\n/g,'<br/>&nbsp;&nbsp;');	
 		}
 	 });
 }
-function oDivFadeHide(){
-	var oDivFade = document.getElementById('alert_fade');
-	oDivFade!=undefined && document.body.removeChild(oDivFade);
-}
-function oDivFadeShow(){
-	var oDivFade = document.createElement('div');
-	oDivFade.className = 'alert_fade';
-	oDivFade.id = 'alert_fade';
-}
+
 </script>
 </body>
 </html>

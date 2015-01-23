@@ -16,8 +16,9 @@ var get = {
 		return (obj || document).getElementsByTagName(elem)
 	}
 }
+
 //窗口拖拽
-function DialogDrag(oDrag,oTitle){
+function DialogDrag(oDrag,oTitle,oSizeDrag){
 	var posX=posY=0;
 	var oMin = get.byClass("min",oDrag)[0];
 	var oMax = get.byClass("max",oDrag)[0];
@@ -29,37 +30,58 @@ function DialogDrag(oDrag,oTitle){
 	oDrag.style.height=RevertHeight+'px';
 	oDrag.style.left=(document.documentElement.clientWidth-oDrag.offsetWidth)/2+"px";
 	oDrag.style.top=(document.documentElement.clientHeight-oDrag.offsetHeight)/2+"px";
+	
 	oTitle.onmousedown=function(event){
-			oTitle.style.cursor = "move";
+		oTitle.style.cursor = "move";
+		var event = event || window.event;
+		var disX=event.clientX-oDrag.offsetLeft;
+		var disY=event.clientY-oDrag.offsetTop;
+		//鼠标移动，窗口随之移动     onmousemove在有物体移动是才执行alert事件；
+		document.onmousemove=function(event){
 			var event = event || window.event;
-			var disX=event.clientX-oDrag.offsetLeft;
-			var disY=event.clientY-oDrag.offsetTop;
-			//鼠标移动，窗口随之移动     onmousemove在有物体移动是才执行alert事件；
-			document.onmousemove=function(event){
-				var event = event || window.event;
-				maxW=document.documentElement.clientWidth-oDrag.offsetWidth;
-				maxH=document.documentElement.clientHeight-oDrag.offsetHeight;
-				posX=event.clientX-disX;
-				posY=event.clientY-disY;
-				if(posX<0){
-					posX=0;
-				}else if(posX>maxW){
-					posX=maxW;
-				}
-				if(posY<0){
-					posY=0;
-				}else if(posY>maxH){
-					posY=maxH;
-				}
-				oDrag.style.left=posX+'px';
-				oDrag.style.top=posY+'px';
-			 }
-		//鼠标松开，窗口将不再移动
+			maxW=document.documentElement.clientWidth-oDrag.offsetWidth;
+			maxH=document.documentElement.clientHeight-oDrag.offsetHeight;
+			posX=event.clientX-disX;
+			posY=event.clientY-disY;
+			if(posX<0){
+				posX=0;
+			}else if(posX>maxW){
+				posX=maxW;
+			}
+			if(posY<0){
+				posY=0;
+			}else if(posY>maxH){
+				posY=maxH;
+			}
+			oDrag.style.left=posX+'px';
+			oDrag.style.top=posY+'px';
+		 }
+			//鼠标松开，窗口将不再移动
 			document.onmouseup=function(){
 			document.onmousemove=null;
 			document.onmouseup=null;
 		}
 	 }
+	 
+	 oSizeDrag.onmousedown=function (ev){
+		var oEvent=ev||event;
+		var disX=oEvent.clientX-oSizeDrag.offsetLeft;
+		var disY=oEvent.clientY-oSizeDrag.offsetTop;
+		document.onmousemove=function (ev){
+			var oEvent=ev||event;		
+			var w = oEvent.clientX; 
+			if(w>=window.innerWidth-10){w = window.innerWidth-10}
+			oDrag.style.width=w-disX+oSizeDrag.offsetWidth+'px';
+			var h = oEvent.clientY;
+			if(h>=window.innerHeight-10){h = window.innerHeight-10}
+			oDrag.style.height=h-disY+oSizeDrag.offsetHeight+'px';
+		};	
+		document.onmouseup=function (){
+			document.onmousemove=null;
+			document.onmouseup=null;
+		};
+	};
+	 
 	//最小化按钮
 	oMin.onclick=function(){
 		oDrag.style.display='none';
@@ -75,6 +97,7 @@ function DialogDrag(oDrag,oTitle){
 		}
 		oDivFadeHide();
 	}
+	
 	//最大化按钮
 	oMax.onclick=function(){
 		oDrag.style.left=oDrag.style.top=0;
@@ -84,6 +107,7 @@ function DialogDrag(oDrag,oTitle){
 		oRevert.style.display='block';
 		oDivFadeShow();
 	}
+	
 	//还原按钮
 	oRevert.onclick=function(){
 		oDrag.style.width=RevertWidth+'px';
@@ -100,6 +124,17 @@ function DialogDrag(oDrag,oTitle){
 		this.onclick=null;
 		oDivFadeHide();
 	}
+	
+	function oDivFadeHide(){
+		var oDivFade = document.getElementById('alert_fade');
+		oDivFade!=undefined && document.body.removeChild(oDivFade);
+	}
+	function oDivFadeShow(){
+		var oDivFade = document.createElement('div');
+		oDivFade.className = 'alert_fade';
+		oDivFade.id = 'alert_fade';
+	}
+
 }
 
 function ajax(options) {

@@ -16,7 +16,7 @@ a.open:hover{background-position:0 -29px;}
 #drag .title a.close{background-position:-89px 0;}
 #drag .title a.close:hover{background-position:-89px -29px;}
 #drag .content{overflow:hidden;margin:0 5px;height:90%;}
-#drag .resizeBR{position:absolute;width:14px;height:14px;right:0;bottom:0;overflow:hidden;cursor:nw-resize;background:url(../images/resize.png) no-repeat;}
+#drag .resizeBR{position:absolute;width:14px;height:14px;right:0;bottom:0;overflow:hidden;cursor:nw-resize;background:url(../images/resize.png) no-repeat;cursor:nw-resize;}
 #drag .resizeL,#drag .resizeT,#drag .resizeR,#drag .resizeB,#drag .resizeLT,#drag .resizeTR,#drag .resizeLB{position:absolute;background:#000;overflow:hidden;opacity:0;filter:alpha(opacity=0);}
 #drag .resizeL,#drag .resizeR{top:0;width:5px;height:100%;cursor:w-resize;}
 #drag .resizeR{right:0;}
