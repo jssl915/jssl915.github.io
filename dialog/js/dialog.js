@@ -94,6 +94,7 @@ function DialogDrag(oDrag,oTitle,oSizeDrag){
 			oDrag.style.display='block';
 			document.body.removeChild(this);
 			this.onclick=null;
+			oDivFadeShow();
 		}
 		oDivFadeHide();
 	}
@@ -124,17 +125,18 @@ function DialogDrag(oDrag,oTitle,oSizeDrag){
 		this.onclick=null;
 		oDivFadeHide();
 	}
-	
 	function oDivFadeHide(){
 		var oDivFade = document.getElementById('alert_fade');
 		oDivFade!=undefined && document.body.removeChild(oDivFade);
 	}
 	function oDivFadeShow(){
+		var oDivFade = document.getElementById('alert_fade');
+		if(oDivFade!=undefined){return} 
 		var oDivFade = document.createElement('div');
 		oDivFade.className = 'alert_fade';
 		oDivFade.id = 'alert_fade';
+		document.body.appendChild(oDivFade);
 	}
-
 }
 
 function ajax(options) {
