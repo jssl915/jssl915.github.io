@@ -161,6 +161,7 @@ window.onload = function(){
 }	
 
 function showDialog(num){
+	clearInterval($Page.page3.timer);	
 	var oDialog = document.getElementById('drag');
 	oDialog.style.display = 'block';	
 	var dialogTitle = document.getElementById('dialogTitle');
@@ -177,7 +178,6 @@ function showDialog(num){
 	 });
 	var oSizeDrag = get.byClass('resizeBR')[0];
 	DialogDrag(oDialog, oTitle,oSizeDrag);	
-	clearInterval($Page.page3.timer);	
 }
 
 

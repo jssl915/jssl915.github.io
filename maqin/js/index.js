@@ -379,8 +379,12 @@
 					};
 				}	
 			}
-			this.flag = false;
-			this.timer = setInterval(starmove,25);
+			
+			var oDialog = document.getElementById('drag');
+			if(oDialog.style.display == 'none'){
+				this.flag = false;
+				this.timer = setInterval(starmove,25);
+			}
 			
 			function starmove(){
 				for(i=0;i<aA.length;i++){
