@@ -171,7 +171,7 @@ function showDialog(num){
 		dataType: "txt",
 		success:function (response, xml) {					
 			var dialogContent = document.getElementById('dialogContent');
-			dialogContent.innerHTML = response.replace(/\r\n/g,'<br/>&nbsp;&nbsp;');	
+			dialogContent.innerHTML = response.replace(page3Obj[num],'&nbsp;&nbsp;&nbsp;&nbsp;').replace(/[\。]/g,'。<br/>&nbsp;&nbsp;&nbsp;&nbsp;');	
 		}
 	 });
 	var oSizeDrag = get.byClass('resizeBR')[0];
