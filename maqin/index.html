@@ -5,8 +5,10 @@
 <title>我的个人网站</title>
 <link href="css/index.css" rel="stylesheet" type="text/css" />
 <link href="css/hover-min.css" rel="stylesheet" type="text/css" />
+<link href="css/dialog.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/page_util.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/dialog.js"></script>
 </head>
 <body>
 <div id="main">
@@ -37,7 +39,7 @@
                             </h2>
                             <div class="content">
                             	<div> 夫君，世间有人谤我，欺我，辱我，笑我，轻我，贱我，骗我，如何处置乎？”</div><br/>
-                                <div> 答曰：“揍他，揍他，揍他，揍他，揍他，揍他，揍他，就是揍他，揍完之后，你且看他。</div>
+                                <div> 答曰：“揍他，揍他，揍他，揍他，揍他，揍他，揍他，就是揍他，揍完之后，你且看他。 </div>
                             </div>
                         </div>
                         <div class="bg"></div>
@@ -57,7 +59,26 @@
         	<div id="page3" class="page">
            		 <div class="page3_title">我的博客墙</div>
             	 <div id="blogId"></div>
+                 <div id="drag" style="display:none">
+                <div class="title"><h2 id="dialogTitle">这是一个可以拖动的窗口</h2>
+                    <div>
+                        <a class="min" style="display:none" href="javascript:;" title="最小化"></a>
+                        <a class="max" href="javascript:;" title="最大化"></a>
+                        <a class="revert" href="javascript:;" title="还原"></a>
+                        <a class="close" href="javascript:;" title="关闭"></a>
+                    </div>
+                </div>
+                <div class="resizeL"></div>
+                <div class="resizeT"></div>
+                <div class="resizeR"></div>
+                <div class="resizeB"></div>
+                <div class="resizeLT"></div>
+                <div class="resizeTR"></div>
+                <div class="resizeBR"></div>
+                <div class="resizeLB"></div>
+                <div id="dialogContent" class="content"></div>
             </div>
+            </div>     
         </li>
   		<li class="pageLi">
         	<div id="page4" class="page">
@@ -113,6 +134,8 @@
 </div>
 
 <div id="toTop" class="toTop hvr-wobble-vertical"></div>
+
+
 <script>
 var page2Obj = {
 	id:'imgDiv',	
@@ -126,18 +149,36 @@ var page2Obj = {
 		  'images/photo21.jpg','images/photo22.jpg','images/photo23.jpg','images/photo24.jpg']
 }
 var page3Obj = [
-'JS课程','继承','妙味课堂','莫涛','blue','试听','精品','miaov','CSS','杜鹏',
-'JS课程','继承','妙味课堂','莫涛','blue','试听','精品','miaov','CSS','杜鹏',
-'JS课程','继承','妙味课堂','莫涛','blue','试听','精品','miaov','CSS','杜鹏',
-'JS课程','继承','妙味课堂','莫涛','blue','试听','精品','miaov','CSS','杜鹏',
-'JS课程','继承','妙味课堂','莫涛','blue','试听','精品','miaov','CSS','杜鹏',
-'JS课程','继承','妙味课堂','莫涛','blue','试听','精品','miaov','CSS','杜鹏'
+'雁','Miss好呀','经营家庭','陌上花开','三首诗云','希望','怀念','你','小时候','关于外遇','关于生育'
+,'介意不介意？','恰当好处','嗯哼','心里话','怎么办','可是','偶尔心动','我要的','我说'
+
 ]
 window.onload = function(){
 	$Page.support();//检测浏览器是否支持HTML5
 	$Page.page.onLoad();//加载首页
 	window.onresize = function(){$Page.page.onLoad()};	
 }	
+
+function showDialog(num){
+	var oDialog = document.getElementById('drag');
+	oDialog.style.display = 'block';	
+	var dialogTitle = document.getElementById('dialogTitle');
+	var oTitle = get.byClass("title", oDialog)[0];
+	dialogTitle.innerHTML = page3Obj[num];
+	ajax({
+		url: "blog/"+parseInt(num+1)+".txt",  //请求地址
+		type: "GET",                       //请求方式
+		dataType: "txt",
+		success:function (response, xml) {					
+			var dialogContent = document.getElementById('dialogContent');
+			dialogContent.innerHTML = response.replace(/\r\n/g,'<br/>&nbsp;&nbsp;');	
+		}
+	 });
+	var oSizeDrag = get.byClass('resizeBR')[0];
+	DialogDrag(oDialog, oTitle,oSizeDrag);	
+	clearInterval($Page.page3.timer);	
+}
+
 
 </script>
 </body>
