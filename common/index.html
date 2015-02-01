@@ -77,15 +77,25 @@
     </div>
      <div id="page6" class="section">
         <div class="page1_title">公共接口</div>
-        <div class="page5_index1">mysql-operamasks: <a href="http://192.168.1.59:8081/com_mysql_system">http://192.168.1.59:8081/com_mysql_system</a></div>
-        <div class="page5_index2">mysql-easyui: <a href="http://192.168.1.59:8082/com_easyui_system">http://192.168.1.59:8082/com_easyui_system</a></div>
-        <div class="page5_index3">oracle-operamasks: <a href="http://192.168.1.59:8083/com_operamasks_system">http://192.168.1.59:8083/com_operamasks_system</a></div>
+        <div class="page6_index1">public void insert(T paramT); //新增</div>
+        <div class="page6_index2">public void deleteByCondition(Map condition);//按条件删除</div>
+        <div class="page6_index3">public void updateByCondition(T record);//按条件修改</div>
+        <div class="page6_index4">public List selectByCondition(Map condititon);//按条件查询</div>
+        <div class="page6_index5">public Integer countByCondition(Map condititon);//按条件查询总数</div>
+        <div class="page6_index6">public abstract List selectByCondition(Map condititon, RowBounds rowBounds);//按条件查询分页</div>
+        <div class="page6_index7">public void deleteByPrimaryKey(Long id); //根据主键删除</div>
+        <div class="page6_index8">public T findByPrimaryKey(Long id); //根据主键查询</div>
     </div>
      <div id="page7" class="section">
         <div class="page1_title">技术总结</div>
-        <div class="page5_index1">mysql-operamasks: <a href="http://192.168.1.59:8081/com_mysql_system">http://192.168.1.59:8081/com_mysql_system</a></div>
-        <div class="page5_index2">mysql-easyui: <a href="http://192.168.1.59:8082/com_easyui_system">http://192.168.1.59:8082/com_easyui_system</a></div>
-        <div class="page5_index3">oracle-operamasks: <a href="http://192.168.1.59:8083/com_operamasks_system">http://192.168.1.59:8083/com_operamasks_system</a></div>
+       <div class="page6_index1">shiro 实现拦截功能，并记住拦截前地址，登录后直接跳转到记录地址 </div>
+        <div class="page6_index2">http://www.cnblogs.com/lj915/p/3443590.html</div>
+        <div class="page6_index3">spring+quartz实现动态修改定时规则</div>
+        <div class="page6_index4">http://www.cnblogs.com/lj915/p/3444930.html</div>
+        <div class="page6_index5">mybatis在mysql中的分页扩展</div>
+        <div class="page6_index6">http://www.cnblogs.com/lj915/p/4262732.html</div>
+        <div class="page7_index7">mybatis在oracle中的分页扩展</div>
+        <div class="page7_index8">http://www.cnblogs.com/lj915/p/4262743.html</div>
     </div>
 </div>
 </body>
