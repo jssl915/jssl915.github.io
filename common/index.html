@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>index</title>
+    <link rel="stylesheet" href="css/jquery.fullPage.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/jquery.easings.min.js"></script> 
+    <script src="js/jquery.slimscroll.min.js"></script>
+    <script src="js/jquery.fullPage.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#dowebok').fullpage({
+				sectionsColor: ['#4BBFC3', '#7BAABE', '#4BBFC3', '#ccddff'],
+				navigation: true,
+				navigationTooltips: ['首页', '组成', '技术', '优势'],
+				scrollingSpeed: 1500,
+				afterLoad: function(anchorLink, index){
+					if(index == 2){
+						$('#page2').find('p').delay(500).animate({left: '40%'}, 1500, 'easeOutExpo');
+					}
+					if(index == 3){
+						$('#page3').find('p').delay(500).animate({bottom: '40%'}, 1500, 'easeOutExpo');
+					}
+					if(index == 4){
+						$('#page4').find('p').fadeIn(2000);
+					}
+				},
+				onLeave: function(index, direction){
+					if(index == 1){
+						//$('#page2').find('page1_title').animate({left: '-120%'}, 1500, 'easeOutExpo');
+					}
+					if(index == 2){
+						$('#page2').find('p').delay(500).animate({left: '-120%'}, 1500, 'easeOutExpo');
+					}
+					if(index == 3){
+						$('#page3').find('p').delay(500).animate({bottom: '-120%'}, 1500, 'easeOutExpo');
+					}
+					if(index == 4){$('#page4').find('p').fadeOut(2000);}
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+<div id="dowebok">
+    <div id="page1" class="section">
+       <div class="page1_title">后台管理框架</div>
+       <div class="page1_content">
+       		秉承清新简洁的设计风格、这套后台管理框架1.0版本界面更简洁、操作更容易、编码更快捷、使用更方便...
+       </div>
+       <div class="page1_index1"></div>
+       <div class="page1_index2"></div>
+       <div class="page1_index3"></div>
+    </div>
+    <div id="page2" class="section">
+        <div class="page1_title">框架组成</div>
+        <div class="page2_index1">这套框架主要分为三个部分（项目）：</div>
+        <div class="page2_index2">1 mybatis-generator 代码生成器（工具项目）支持oracle和mysql.</div>
+        <div class="page2_index3">2 com_service 服务端项目，主要提供服务，支持oracle和mysql.</div>
+        <div class="page2_index4">3 com_system 客户端项目，主要显示前端页面，有两个版本operamasks和easyui.</div>
+        <div class="page2_project1"></div>
+        <div class="page2_project2"></div>
+        <div class="page2_project3"></div>
+    </div>
+    <div id="page3" class="section">
+        <div class="page1_title">框架技术</div>
+        <div class="page3_content1">后台技术</div>
+        <div class="page3_content3">前端技术</div>
+        <div class="page3_content2">
+        框架是用的 springMVC + mybatis , 远程调用用的是 httpInvoker (http 协议) , 缓存是用的oscache(目前用于数据字典的缓存）,安全框架用的是shiro，主要用于用户登录，定时器之前的用的是 spring 的 quartz,支持动态修改定时规则。还可以用Spring升级到3.0版本后自带的任务调度器Spring task，分页用的是mybatis自带的，只不过针对oracle和mysql进行了相应扩展，将原来在内存中分页改为在数据库中进行分页。
+        </div>       
+        <div class="page3_content4">
+        主要插件用的是operamasks2.0(包括grid,tree,tab等)和easyui1.4.1,弹出框用的artDialog,表单验证用的是框架自带的validator,图表插件用的highcharts-4.0.3。所用的开源插件基本都是最新版本。另外还自己封装了一些jquery插件，如左边的菜单树，图片上传拖拽排序功能等。
+        </div>
+    </div>
+    <div id="page4" class="section">
+        <div class="page1_title">框架优势</div>
+        <div class="page4_index1">一、兼容所有主流浏览器,已测试过的有火狐firefox、谷哥chrome、苹果safari、360浏览器、ie9、ie8(稍有不同，css3圆角属性不支持)等。另外ie6、ie7存在的问题比较大，不过如果需要，我可以做相关方面的兼容工作。
+		</div>
+        <div class="page4_index2">
+        二、针对本套框架实现的代码生成器，可以生成大部分代码，对于业务逻辑比较简单的模块即不需要关联多张表查询的模块生成后(entity、mapper、service)直接可以使用，基本不需要做任何
+修改。可以节约大部分开发时间。
+虽然可以对web层(也可以说是controller层)和jsb层进行封装，甚至可以在java代码里拼接jsp页面，但感觉有点过度封装，反而增加了开发的难度，从而会增加程序员的负担。
+        </div>
+        <div class="page4_index3">
+        三、服务端service项目利用多态和泛型将代码生成器生成的八个公共方法写入父类。另外这套框架重新封装了一些公共方法，并且将之前项目中没有用到的、重复的、过于复杂的代码进行重构，至少目前看来代码是比较干净和整洁的。
+
+客户端对于公用方法如查询、新增、编辑、删除、导出等方法实现了公共的函数，并尽可能的使其调用简单。另外对于jsp页面也进行了简化，定义了一些常用的样式，如search框里的表单按钮，弹出层的表单和按钮等。
+        </div>
+        <div class="page4_index4">
+        四、系统管理模块数据库表进行了重新设计，将一些没用的表、字段进行了整理和删除，目前只有八张表：用户表T_S_USER、角色表T_S_ROLE、菜单表T_S_MENU、日志表T_S_LOG、角色菜单关联表T_S_ROLE_MENU、角色用户关联表T_S_USER_ROLE、字典表T_S_DICT、字典明细表T_S_DETAIL
+        </div>
+    </div>
+</div>
+</body>
+</html>
