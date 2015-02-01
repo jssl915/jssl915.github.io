@@ -64,6 +64,15 @@ background:-ms-radial-gradient(center,ellipse cover,rgba(252,234,187,1) 0%,rgba(
 background:radial-gradient(ellipse at center,rgba(252,234,187,1) 0%,rgba(248,181,0,1) 20%,rgba(252,205,77,1) 81%,rgba(251,223,147,1) 100%);/* W3C */
 filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#fceabb',endColorstr='#fbdf93',GradientType=1 );/* IE6-9 fallback on horizontal gradient */
 }
+#page8{background:rgb(229,112,231);/* Old browsers */
+background:-moz-radial-gradient(center,ellipse cover,rgba(229,112,231,1) 0%,rgba(200,94,199,1) 47%,rgba(168,73,163,1) 100%);/* FF3.6+ */
+background:-webkit-gradient(radial,center center,0px,center center,100%,color-stop(0%,rgba(229,112,231,1)),color-stop(47%,rgba(200,94,199,1)),color-stop(100%,rgba(168,73,163,1)));/* Chrome,Safari4+ */
+background:-webkit-radial-gradient(center,ellipse cover,rgba(229,112,231,1) 0%,rgba(200,94,199,1) 47%,rgba(168,73,163,1) 100%);/* Chrome10+,Safari5.1+ */
+background:-o-radial-gradient(center,ellipse cover,rgba(229,112,231,1) 0%,rgba(200,94,199,1) 47%,rgba(168,73,163,1) 100%);/* Opera 12+ */
+background:-ms-radial-gradient(center,ellipse cover,rgba(229,112,231,1) 0%,rgba(200,94,199,1) 47%,rgba(168,73,163,1) 100%);/* IE10+ */
+background:radial-gradient(ellipse at center,rgba(229,112,231,1) 0%,rgba(200,94,199,1) 47%,rgba(168,73,163,1) 100%);/* W3C */
+filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#e570e7',endColorstr='#a849a3',GradientType=1 );/* IE6-9 fallback on horizontal gradient */
+}
 .section {
 	color: #fff;
 	font: 50px "Microsoft Yahei";
@@ -651,3 +660,24 @@ filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#fceabb',endCo
 	opacity: 0;
 	transition: all 1s ease 0s;
 }	
+
+.active .page8_title {
+	opacity: 1;
+	transform: scale(1, 1);
+	transition-delay: 0.7s;
+}
+.page8_title {
+	height: 100px;
+	left: 50%;
+	margin-top:-50px;
+	margin-left:-300px;
+	opacity: 0;
+	position: absolute;
+	width: 600px;
+	top: 50%;
+	font-size:80px;
+	font-family: "Microsoft Yahei",verdana;
+	transform: scale(0.5, 0.5);
+	transition: all 1s ease 0s;
+	
+}
