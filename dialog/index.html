@@ -4,7 +4,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>弹出框</title>
 <link href="css/dialog.css" rel="stylesheet" type="text/css" />
+<link href="js/scrollbar/tinyscrollbar.css" rel="stylesheet" type="text/css" />
 <script src="js/dialog.js"></script>
+<script src="js/scrollbar/jquery-2.1.1.js"></script>
+<script src="js/scrollbar/jquery.tinyscrollbar.js"></script>
 </head>
 <body>
 <input id="btn1" type="button" value ="打开" style="width:200px;height:30px;margin:30px;"/>
@@ -25,7 +28,7 @@
     <div class="resizeTR"></div>
     <div class="resizeBR"></div>
     <div class="resizeLB"></div>
-    <div id="dialogContent" class="content"></div>
+    <div id="dialogContent" class="scrollbarcss"></div>
 </div>
 <script type="text/javascript">
 window.onload  = function (){
@@ -54,9 +57,9 @@ function showContent(){
 		type: "GET",                       //请求方式
 		dataType: "txt",
 		success:function (response, xml) {					
-			console.log(123);
 			var dialogContent = document.getElementById('dialogContent');
-			dialogContent.innerHTML = response.replace(/\r\n/g,'<br/>&nbsp;&nbsp;');	
+			dialogContent.innerHTML = response.replace(/\r\n/g,'<br/>&nbsp;&nbsp;');
+			$('#dialogContent').scrollbar();	
 		}
 	 });
 }

@@ -78,8 +78,7 @@ function DialogDrag(oDrag,oTitle,oSizeDrag){
 			if(iW<=300){iW=300}
 			if(iH<=200){iH=200}
 			oDrag.style.width=iW+'px';
-			oDrag.style.height=iH+'px';
-			
+			oDrag.style.height=iH+'px';		
 		};	
 		document.onmouseup=function (){
 			document.onmousemove=null;
