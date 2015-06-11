@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="css/menuTree.css">
+<title>菜单树</title>
+</head>
+<body>
+<div id="menuTree" class="menu-tree"></div>
+<iframe scrolling="no" noresize="noresize"  id="tvPanel" name="tvPanel" class="tvPanel"></iframe>
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/menuTree.js"></script>
+<script>
+var data = [
+        {one:{text:'jquery插件',value:''},
+         two:[{text:'图片拖曳',value:'demo/imgDrag'},
+              {text:'日志管理',value:'2'},
+              {text:'参数管理',value:'3'}
+             ]
+        },
+        {one:{text:'应用商店',value:''},
+         two:[{text:'首页',value:''},
+              {text:'应用',value:''}
+             ]
+        }
+]
+$(function(){
+	$('#menuTree').menuTree(data);
+    var iW = window.innerWidth;
+    var iH = window.innerHeight;
+    $('#tvPanel').css({width:iW-185+'px',height:iH-10+'px'});
+});
+function openTab(url){
+    $('#tvPanel').attr('src',url);
+}
+</script>
+</body>
+</html>
