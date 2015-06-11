@@ -2,9 +2,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script src="../jquery-2.1.1.js"></script>
-<script src="areaData.js"></script> 
-<script src="areaSelect.js"></script> 
 <title>省市县选择</title>
 <style>
 ul,li{margin:0;padding:0;list-style:none}
@@ -13,6 +10,7 @@ ul li{float:left;}
 </style>
 </head>
 <body>
+<div style="margin:40px auto;width:100%;text-align:center;font-size:30px;">省市区联动</div>
 <div style="margin:10px;">
     <ul>
         <li>区域选择：</li>
@@ -31,8 +29,9 @@ ul li{float:left;}
         </div></li>
     </ul>
 </div>
-
-
+<script src="../../js/jquery-2.1.4.min.js"></script>
+<script src="areaData.js"></script>
+<script src="areaSelect.js"></script>
 <script>
 $(function(){
 	var data = {
